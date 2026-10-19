@@ -1,0 +1,22 @@
+# Variables de entorno y secretos (NUNCA subir a GitHub)
+.env
+.env.*
+!.env.example
+
+# Dependencias
+node_modules/
+.venv/
+venv/
+__pycache__/
+
+# Builds y caché
+.next/
+dist/
+build/
+.vercel/
+out/
+
+# Datos crudos de scraping / temporales
+data/raw/
+*.log
+.DS_Store

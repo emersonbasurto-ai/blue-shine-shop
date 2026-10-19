@@ -1,0 +1,971 @@
+﻿[
+    {
+        "#debug":  {
+                       "requestId":  "6FBUAOqSRWKAT5V",
+                       "url":  "http://www.google.com/search?q=blazer+sastre+mujer+quito+guayaquil\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "loadedUrl":  "http://www.google.com/search?q=blazer+sastre+mujer+quito+guayaquil\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "method":  "GET",
+                       "retryCount":  0,
+                       "errorMessages":  [
+
+                                         ],
+                       "statusCode":  200
+                   },
+        "#error":  false,
+        "searchQuery":  {
+                            "term":  "blazer sastre mujer quito guayaquil",
+                            "url":  "http://www.google.com/search?q=blazer+sastre+mujer+quito+guayaquil\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                            "device":  "MOBILE",
+                            "page":  1,
+                            "type":  "SEARCH",
+                            "domain":  "google.com",
+                            "countryCode":  "EC",
+                            "languageCode":  "es",
+                            "locationUule":  null,
+                            "resultsPerPage":  10
+                        },
+        "url":  "http://www.google.com/search?q=blazer+sastre+mujer+quito+guayaquil\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+        "hasNextPage":  true,
+        "serpProviderCode":  "L",
+        "relatedQueries":  [
+
+                           ],
+        "paidResults":  [
+
+                        ],
+        "paidProducts":  [
+
+                         ],
+        "organicResults":  [
+                               {
+                                   "title":  "Blazers y americanas de mujer 2026 | MNG Ecuador",
+                                   "websiteTitle":  "Mango Shop",
+                                   "url":  "https://shop.mango.com/ec/es/c/mujer/blazers/193c791e",
+                                   "displayedUrl":  "https://shop.mango.com",
+                                   "description":  "Eleva tus looks con estos blazers de mujer. Compra aquí americanas de mujer formales para completar tu traje y blazers casuales.",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  1
+                               },
+                               {
+                                   "title":  "BLAZER OUTFITS DE OFICINA (@cocoa_boutique_uio)",
+                                   "websiteTitle":  "Instagram · cocoa_boutique_uio",
+                                   "url":  "https://www.instagram.com/cocoa_boutique_uio/?hl=es",
+                                   "displayedUrl":  "Más de 30 k seguidores",
+                                   "description":  "Personalízamos a tu medida TIENDA FISICA Quito ACEPTAMOS PAGOS CON TARJETA ENVÍOS A TODO EL PAÍS.",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  2
+                               },
+                               {
+                                   "title":  "Ropa Guayaquil Blazer",
+                                   "websiteTitle":  "TikTok",
+                                   "url":  "https://www.tiktok.com/discover/ropa-guayaquil-blazer",
+                                   "displayedUrl":  "https://www.tiktok.com",
+                                   "description":  "hace 7 días — Blazers de Mujer en Guayaquil: Opciones para Oficina y Eventos ... escríbeme para ver el catálogo completo 0990664554 ✨ #blazer #economico # ...",
+                                   "emphasizedKeywords":  [
+                                                              "Blazers de Mujer en Guayaquil"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  3
+                               },
+                               {
+                                   "title":  "Blazers de Mujer | ZARA Ecuador",
+                                   "websiteTitle":  "Zara",
+                                   "url":  "https://www.zara.com/ec/es/mujer-blazers-l1055.html",
+                                   "displayedUrl":  "https://www.zara.com",
+                                   "description":  "BLAZER CON LANA ZW COLLECTION. $ 139,00. Conjunto de blazer azul ajustado de raya diplomática con botones dorados y bolsillos con solapa, ...",
+                                   "emphasizedKeywords":  [
+                                                              "BLAZER CON LANA ZW COLLECTION"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  4
+                               },
+                               {
+                                   "title":  "Blazers y Chalecos | Moda Mujer",
+                                   "websiteTitle":  "De Prati",
+                                   "url":  "https://www.deprati.com.ec/blazers-y-chalecos/c/0128?srsltid=AU7gw4W5_2EtfncfM0R_fvWsLyKQwmVrtY2toAKtyTZN-88BgaRyqzxa",
+                                   "displayedUrl":  "https://www.deprati.com.ec",
+                                   "description":  "BLAZER MLG CON UN BOTON, EXPRESSIONS, BEIGE, 100% Poliéster · Blazer Manga Larga con Botón Expressions. $59,98. Vista Previa. CHAQUETA UNICOLOR, H\u0026O, NEGRO, 100 ...",
+                                   "emphasizedKeywords":  [
+                                                              "BLAZER MLG CON UN BOTON, EXPRESSIONS, BEIGE, 100% Poliéster"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  5
+                               },
+                               {
+                                   "title":  "Blazer y Gaban Mujer",
+                                   "websiteTitle":  "KOAJ Ecuador",
+                                   "url":  "https://koaj.ec/mujer/ropa/blazer-y-gaban/",
+                                   "displayedUrl":  "https://koaj.ec",
+                                   "description":  "Encuentra el blazer y gabán para mujer que necesitas, esenciales en tu closet, luce como una mujer joven, moderna y con estilo. ¡Compra ahora en KOAJ!",
+                                   "emphasizedKeywords":  [
+                                                              "Encuentra el blazer y gabán para mujer que necesitas"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  6
+                               },
+                               {
+                                   "title":  "Blazer Guayaquil Ropa Mujer | MercadoLibre.com.ec",
+                                   "websiteTitle":  "Mercado Libre Ecuador",
+                                   "url":  "https://listado.mercadolibre.com.ec/ropa/mujer/blazer-guayaquil-ropa-mujer",
+                                   "displayedUrl":  "https://listado.mercadolibre.com.ec",
+                                   "description":  "Blazer Sastre Con Solapa De Muesca Y Cierre Mono-botón Vino. Banda. US$99. 6 cuotas de US$16,50 sin ...",
+                                   "emphasizedKeywords":  [
+                                                              "Blazer Sastre Con Solapa De Muesca Y Cierre Mono-botón Vino"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  7
+                               },
+                               {
+                                   "title":  "Blazers de Mujer",
+                                   "websiteTitle":  "H\u0026M Ecuador",
+                                   "url":  "https://ec.hm.com/mujer/blazers",
+                                   "displayedUrl":  "https://ec.hm.com",
+                                   "description":  "En H\u0026M Ecuador contamos con una amplia variedad de opciones que van desde siluetas clásicas hasta diseños de blazer de mujer modernos, ideales para tus días en ...",
+                                   "emphasizedKeywords":  [
+                                                              "En H\u0026M Ecuador contamos con una amplia variedad de opciones"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  8
+                               }
+                           ],
+        "suggestedResults":  [
+
+                             ],
+        "peopleAlsoAsk":  [
+
+                          ],
+        "aiOverview":  {
+                           "type":  "live",
+                           "content":  "En Quito y Guayaquil, puedes encontrar blazers tipo sastre para mujer en tiendas departamentales, boutiques especializadas y plataformas en línea con opciones para todos los presupuestos. Opciones en QuitoAlmacenes De Prati: Encuentra blazers y chaquetas formales de marcas como Expressions y H\u0026O desde $59,98. Cocoa Boutique UIO: Tienda física al sur de la ciudad (con envíos a nivel nacional). Ofrece blazers sastre individuales entre $30 y $35 (o promoción de 2 por $50), además de pantalones y chalecos coordinados. ZARA Ecuador y Mango Ecuador: Ubicados en los principales centros comerciales (como CCI, Quicentro, Scala), con blazers de sastrería, lino y lana que van desde los $75,99 hasta los $159,00 (conjuntos de pantalón y blazer disponibles). Tiendas locales independientes: En zonas como la avenida Gaspar de Villarruel y 6 de diciembre o en el sector de Juan Larrea N13-184 y Checa, con sets completos de blazer y pantalón desde $94,99 (tallas desde la S hasta la 2XL). Opciones en GuayaquilRe Love: Ubicado en Febres Cordero 226, ofrece blazers económicos y seminuevos/seleccionados desde $. Almacenes De Prati y H\u0026M Ecuador: Disponibles en centros comerciales del norte y sur de la ciudad (Mall del Sol, CityMall, Riocentro), con blazers clásicos, estructurados y de última tendencia. ZARA Ecuador y Mango Ecuador: Cuentan con sucursales locales y tienda online oficial para entrega en la ciudad. MercadoLibre Ecuador / Plataformas Online: Variedad de blazers sastre mono-botón o entallados con precios desde $65 a $99, con opciones de envío directo a domicilio en Guayaquil. Para ayudarte mejor, dime:¿Buscas una prenda individual o un traje completo (con pantalón/chaleco)?¿Prefieres comprar en una tienda física (en qué zona de Quito o Guayaquil) o online?¿Cuál es tu presupuesto aproximado por prenda?Para ayudarte mejor, dime:Profundizar en el Modo IALas respuestas de la IA pueden incluir errores. Más informaciónSe copió en el portapapelesNo se pudo copiar la información en el portapapeles.  Vuelve a intentarlo más tarde.Compartir el vínculo públicoEste vínculo público es válido durante 7 días y comparte una conversación, incluida la información personal que agregaste. No se puede borrar este vínculo ni las copias que hayan hecho otras personas. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el vínculo en este momento. Vuelve a intentarlo más tarde.FacebookGmailXRedditWhatsAppRespuesta correctaRespuesta incorrectaMás",
+                           "sources":  [
+
+                                       ]
+                       },
+        "customData":  null,
+        "htmlSnapshotUrl":  "https://api.apify.com/v2/key-value-stores/yv5gkg3FsareuTCwu/records/6FBUAOqSRWKAT5V-0.html?signature=1hIW9ZScI71uFP6tzfndz"
+    },
+    {
+        "#debug":  {
+                       "requestId":  "V2zFLjUdjRPyjfE",
+                       "url":  "http://www.google.com/search?q=ropa+ejecutiva+moderna+femenina+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "loadedUrl":  "http://www.google.com/search?q=ropa+ejecutiva+moderna+femenina+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "method":  "GET",
+                       "retryCount":  0,
+                       "errorMessages":  [
+
+                                         ],
+                       "statusCode":  200
+                   },
+        "#error":  false,
+        "searchQuery":  {
+                            "term":  "ropa ejecutiva moderna femenina ecuador",
+                            "url":  "http://www.google.com/search?q=ropa+ejecutiva+moderna+femenina+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                            "device":  "MOBILE",
+                            "page":  1,
+                            "type":  "SEARCH",
+                            "domain":  "google.com",
+                            "countryCode":  "EC",
+                            "languageCode":  "es",
+                            "locationUule":  null,
+                            "resultsPerPage":  10
+                        },
+        "url":  "http://www.google.com/search?q=ropa+ejecutiva+moderna+femenina+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+        "hasNextPage":  false,
+        "serpProviderCode":  "L",
+        "relatedQueries":  [
+
+                           ],
+        "paidResults":  [
+
+                        ],
+        "paidProducts":  [
+
+                         ],
+        "organicResults":  [
+                               {
+                                   "title":  "https://www.venus.com.ec/catalogsearch/result/inde...",
+                                   "websiteTitle":  "Zapatos Venus Ecuador",
+                                   "url":  "https://www.venus.com.ec/catalogsearch/result/index/?cat=93\u0026color=39\u0026q=Formal+de+mujer\u0026tipo_de_cierre=208\u0026uso=174\u0026srsltid=AU7gw4VWDd2m7jkDUZAqv37iHXa_qJKuo2S7I3au-sNTUHtQGmu8HZEN",
+                                   "displayedUrl":  "https://www.venus.com.ec",
+                                   "description":  "No hay información disponible sobre esta página.",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  1
+                               },
+                               {
+                                   "title":  "Equipar. ec moda ejecutiva para damas.",
+                                   "websiteTitle":  "Facebook · Equipar.ec",
+                                   "url":  "https://www.facebook.com/equipar.ec/posts/equipar-ec-moda-ejecutiva-para-damas/581147158911505/?locale=es_LA",
+                                   "displayedUrl":  "1 reacción  ·  hace 8 años",
+                                   "description":  "APRENDIENDO SOBRE: \"LOOK EJECUTIVO La moda laboral ha cambiado en los últimos años y sus códigos ahora le permiten vestir con propiedad y estilo ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  2
+                               },
+                               {
+                                   "title":  "Tienda - ModasMagvi",
+                                   "websiteTitle":  "modasmagvi.com.ec",
+                                   "url":  "https://modasmagvi.com.ec/tienda/?orderby=popularity\u0026filter_cat=alta-costura,uniformes-empresariales,confeccion-y-ajustes",
+                                   "displayedUrl":  "https://modasmagvi.com.ec",
+                                   "description":  "Ropa de Oficina Versátil, Ropa Deportiva, Uniformes Empresariales ... Traje Sastre Azul Marino Mujer | Saco y Falda Ejecutiva · Traje Ejecutivo Azul ...",
+                                   "emphasizedKeywords":  [
+                                                              "Traje Sastre Azul Marino Mujer"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  3
+                               },
+                               {
+                                   "title":  "Tienda - ModasMagvi",
+                                   "websiteTitle":  "modasmagvi.com.ec",
+                                   "url":  "https://modasmagvi.com.ec/tienda/?orderby=popularity\u0026filter_cat=alta-costura,uniformes-empresariales",
+                                   "displayedUrl":  "https://modasmagvi.com.ec",
+                                   "description":  "Ropa de Oficina Versátil, Ropa Deportiva, Uniformes Empresariales ... Traje Sastre Azul Marino Mujer | Saco y Falda Ejecutiva · Traje Ejecutivo Azul ...",
+                                   "emphasizedKeywords":  [
+                                                              "Traje Sastre Azul Marino Mujer"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  4
+                               },
+                               {
+                                   "title":  "https://www.lopaworld.com/es/products/executive-lady",
+                                   "websiteTitle":  "lopaworld.com",
+                                   "url":  "https://www.lopaworld.com/es/products/executive-lady",
+                                   "displayedUrl":  "https://www.lopaworld.com",
+                                   "description":  "No hay información disponible sobre esta página.",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  5
+                               }
+                           ],
+        "suggestedResults":  [
+
+                             ],
+        "peopleAlsoAsk":  [
+
+                          ],
+        "aiOverview":  {
+                           "type":  "live",
+                           "content":  "En Ecuador, la ropa ejecutiva moderna femenina combina sastrería contemporánea, blazers estructurados, pantalones de pinzas y conjuntos versátiles. Las opciones disponibles incluyen tanto marcas locales especializadas como tiendas departamentales y firmas internacionales con presencia en el país. Tiendas y Marcas Locales en EcuadorCH Boutique (Quito): Especializada en moda ejecutiva para la mujer moderna (blazers y pantalones) con asesoría de imagen personalizada y tallas amplias desde S hasta 3XL. Envíos a todo el país. Cocoa Boutique (Quito / Envíos nacionales): Ofrece conjuntos de oficina, blazers y pantalones tipo sastre con promociones en packs (ej. blazers o pantalones individuales alrededor de $30 o combos) y tallas de XS a XXXL. Distrito 5 (Quito, Guayaquil, Cuenca, Santo Domingo): Ofrece moda femenina ecuatoriana que incluye básicos formales, pantalones de sastre y chaquetas en colores de tendencia. Ivanny Boutique (Quito): Cuenta con ropa formal y elegante para la mujer, con tienda física y opción de compra online con envíos a nivel nacional. Gala (Guayaquil): Destacada por prendas formales y casuales de buena calidad hechas en Ecuador con colecciones de temporada. Tiendas Departamentales y CadenasDeprati: Ofrece una amplia selección de blazers, chalecos, pantalones formales y blusas para mujer de marcas propias y aliadas (como Expressions o accesorios Crepier), con tienda en línea. ETAFASHION: Presenta secciones amplias de moda para mujer con variedad en ropa ejecutiva, blusas de oficina y pantalones formales en sus múltiples locales a nivel nacional y en su Sitio Web de Etafashion. Marcas Internacionales en el PaísZARA Ecuador: Cuenta con una sección completa de Trajes de Mujer de ZARA que incluye blazers estructurados, chalecos de sastre y pantalones coordinados, además de camisas formales.Mango (MNG): Disponible en centros comerciales de Guayaquil y en su plataforma online Looks de Oficina de Mango, con prendas clásicas y de corte minimalista para el trabajo.H\u0026M Ecuador: Ofrece una línea de Ropa Formal de H\u0026M con blazers, faldas y pantalones de corte profesional.Tennis: Propone colecciones de Outfit de Oficina en Tennis con enfoque en piezas funcionales para la jornada laboral y el estilo after-office. Si me cuentas en qué ciudad te encuentras o cuál es tu presupuesto aproximado, puedo indicarte cuáles de estas tiendas te quedan más cerca o ayudarte a armar un conjunto específico. Si me cuentas en qué ciudad te encuentras o cuál es tu presupuesto aproximado, puedo indicarte cuáles de estas tiendas te quedan más cerca o ayudarte a armar un conjunto específico. Profundizar en el Modo IA Más informaciónSe copió en el portapapelesNo se pudo copiar la información en el portapapeles.  Vuelve a intentarlo más tarde.Compartir el vínculo públicoEste vínculo público es válido durante 7 días y comparte una conversación, incluida la información personal que agregaste. No se puede borrar este vínculo ni las copias que hayan hecho otras personas. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el vínculo en este momento. Vuelve a intentarlo más tarde.FacebookGmailXRedditWhatsAppRespuesta correctaRespuesta incorrectaMás",
+                           "sources":  [
+
+                                       ]
+                       },
+        "customData":  null,
+        "htmlSnapshotUrl":  "https://api.apify.com/v2/key-value-stores/yv5gkg3FsareuTCwu/records/V2zFLjUdjRPyjfE-0.html?signature=1S1bkgnLYRWbFu74KmHZL"
+    },
+    {
+        "#debug":  {
+                       "requestId":  "xhgnr8oZa1kZKdr",
+                       "url":  "http://www.google.com/search?q=ropa+formal+mujer+envio+servientrega+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "loadedUrl":  "http://www.google.com/search?q=ropa+formal+mujer+envio+servientrega+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "method":  "GET",
+                       "retryCount":  0,
+                       "errorMessages":  [
+
+                                         ],
+                       "statusCode":  200
+                   },
+        "#error":  false,
+        "searchQuery":  {
+                            "term":  "ropa formal mujer envio servientrega ecuador",
+                            "url":  "http://www.google.com/search?q=ropa+formal+mujer+envio+servientrega+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                            "device":  "MOBILE",
+                            "page":  1,
+                            "type":  "SEARCH",
+                            "domain":  "google.com",
+                            "countryCode":  "EC",
+                            "languageCode":  "es",
+                            "locationUule":  null,
+                            "resultsPerPage":  10
+                        },
+        "url":  "http://www.google.com/search?q=ropa+formal+mujer+envio+servientrega+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+        "hasNextPage":  true,
+        "serpProviderCode":  "L",
+        "relatedQueries":  [
+
+                           ],
+        "paidResults":  [
+
+                        ],
+        "paidProducts":  [
+
+                         ],
+        "organicResults":  [
+                               {
+                                   "title":  "Servientrega Ecuador",
+                                   "websiteTitle":  "Servientrega Ecuador",
+                                   "url":  "https://www.servientrega.com.ec/",
+                                   "displayedUrl":  "https://www.servientrega.com.ec",
+                                   "description":  "En Servientrega ofrecemos atención personalizada que impulsa tus envíos, con asesoría experta y soluciones a la medida que garantizan una experiencia ágil, ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  1
+                               },
+                               {
+                                   "title":  "Envíos a Ecuador desde Colombia: cómo cotizar, tiempos y cobertura",
+                                   "websiteTitle":  "Servientrega",
+                                   "url":  "https://www.servientrega.com/wps/portal/noticias-y-promociones/noticias/envios-a-ecuador-desde-colombia",
+                                   "displayedUrl":  "https://www.servientrega.com",
+                                   "description":  "19 ene 2026 — Servientrega está presente en Ecuador para hacer tus envíos más fáciles, rápidos y seguros. Con el respaldo de una marca líder en logística ...",
+                                   "emphasizedKeywords":  [
+                                                              "Servientrega está presente en Ecuador"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  2
+                               },
+                               {
+                                   "title":  "Preguntas frecuentes",
+                                   "websiteTitle":  "Servientrega Ecuador",
+                                   "url":  "https://www.servientrega.com.ec/Home/PreguntasFrecuentes",
+                                   "displayedUrl":  "https://www.servientrega.com.ec",
+                                   "description":  "Dependiendo del trayecto del envío, las entregas se realizan dentro de las 24 a 72 horas laborables. ¿Qué requisitos debo cumplir para ser un cliente Crédito?",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  3
+                               },
+                               {
+                                   "title":  "¿Deseas comenzar a realizar tus envíos? Aquí te brindamos un listado de lo permitido, si tu ...",
+                                   "websiteTitle":  "Facebook · Servientrega Ecuador",
+                                   "url":  "https://www.facebook.com/ServientregaEcuadorOficial/posts/deseas-comenzar-a-realizar-tus-env%C3%ADos-aqu%C3%AD-te-brindamos-un-listado-de-lo-permiti/3106537726069047/?locale=es_LA",
+                                   "displayedUrl":  "Más de 320 reacciones  ·  hace 6 años",
+                                   "description":  "¿Deseas comenzar a realizar tus envíos? Aquí te brindamos un listado de lo permitido, si tu producto no refleja en la lista, no dudes en ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  4
+                               },
+                               {
+                                   "title":  "Formal | Tienda de ropa Online",
+                                   "websiteTitle":  "VeriHome",
+                                   "url":  "https://verihome.net/categoria-producto/estilos/formal/",
+                                   "displayedUrl":  "https://verihome.net",
+                                   "description":  "... ENVIOS \"GRATIS\" CON PAGOS ANTICIPADOS | ENVIOS SEGUROS POR SERVIENTREGA Y LAARCOURIER | ... Ropa de Mujer · Accesorios para mujer · Blusas y camisas · Bodys y ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  5
+                               },
+                               {
+                                   "title":  "Servientrega Ropa Mujer | MercadoLibre.com.ec",
+                                   "websiteTitle":  "Mercado Libre Ecuador",
+                                   "url":  "https://listado.mercadolibre.com.ec/servientrega-ropa-mujer",
+                                   "displayedUrl":  "https://listado.mercadolibre.com.ec",
+                                   "description":  "Mercado Libre Ecuador - Donde comprar y vender de todo. Bienvenido. Ingresa a tu cuenta para ver tus compras, favoritos, etc. Ingresa · Crea tu cuenta.",
+                                   "emphasizedKeywords":  [
+                                                              "Mercado Libre Ecuador"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  6
+                               }
+                           ],
+        "suggestedResults":  [
+
+                             ],
+        "peopleAlsoAsk":  [
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Cuánto cuesta el envío por Servientrega en Ecuador?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Qué productos se pueden enviar por Servientrega?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Cuánto cobra Servientrega por envío?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Dónde puedo comprar ropa en línea en Ecuador?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              }
+                          ],
+        "aiOverview":  {
+                           "type":  "live",
+                           "content":  "Puedes comprar ropa formal para mujer y recibirla mediante Servientrega Ecuador en todo el país (con tiempos de entrega de 24 a 72 horas laborables). Opciones y Tiendas con Envío por ServientregaTiendas en Línea y Boutiques locales: Existen comercios como CH Boutique (ubicada en Quito, en la Juan Larrea N13-184 y Checa) o tiendas especializadas como VeriHome que ofrecen conjuntos de blazer, pantalones formales, vestidos y ropa elegante con envíos seguros a nivel nacional a través de Servientrega. Plataformas de Marketplace: Puedes encontrar prendas de vestir y accesorios en Mercado Libre Ecuador donde muchos vendedores utilizan Servientrega como método de entrega. Detalles del Envío con ServientregaTiempo de entrega: De 24 a 72 horas laborables dentro de territorio ecuatoriano. Costos: Dependen directamente de la ciudad de origen y destino, así como del peso o dimensiones del paquete (puedes cotizar en línea en el Centro de Soluciones Servientrega Ecuador). Formas de pago habituales en tiendas online:Transferencia bancaria directa (generalmente sin recargo).Tarjetas de crédito o débito (Visa / Mastercard mediante pasarelas como PayPhone, con un recargo aproximado del 6% en ciertos comercios).En algunos casos específicos, modalidad de pago contra entrega (dependiendo del vendedor). Si buscas algo en específico, dime:¿Qué tipo de prenda necesitas? (vestido largo, blazer, conjunto de pantalón)¿Para qué ocasión es? (fiesta, graduación, trabajo)¿De qué ciudad de Ecuador realizas el pedido?Te puedo guiar mejor sobre dónde conseguirlo o cómo calcular el envío.Si buscas algo en específico, dime:Te puedo guiar mejor sobre dónde conseguirlo o cómo calcular el envío.Profundizar en el Modo IALas respuestas de la IA pueden incluir errores. Más informaciónSe copió en el portapapelesNo se pudo copiar la información en el portapapeles.  Vuelve a intentarlo más tarde.Compartir el vínculo públicoEste vínculo público es válido durante 7 días y comparte una conversación, incluida la información personal que agregaste. No se puede borrar este vínculo ni las copias que hayan hecho otras personas. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el vínculo en este momento. Vuelve a intentarlo más tarde.FacebookGmailXRedditWhatsAppRespuesta correctaRespuesta incorrectaMás",
+                           "sources":  [
+
+                                       ]
+                       },
+        "customData":  null,
+        "htmlSnapshotUrl":  "https://api.apify.com/v2/key-value-stores/yv5gkg3FsareuTCwu/records/xhgnr8oZa1kZKdr-0.html?signature=1ipR45VW96xuTe6E1ZAxg"
+    },
+    {
+        "#debug":  {
+                       "requestId":  "zCVPhBhbiDKQmdc",
+                       "url":  "http://www.google.com/search?q=outfits+smart+casual+mujer+ecuador+comprar\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "loadedUrl":  "http://www.google.com/search?q=outfits+smart+casual+mujer+ecuador+comprar\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "method":  "GET",
+                       "retryCount":  0,
+                       "errorMessages":  [
+
+                                         ],
+                       "statusCode":  200
+                   },
+        "#error":  false,
+        "searchQuery":  {
+                            "term":  "outfits smart casual mujer ecuador comprar",
+                            "url":  "http://www.google.com/search?q=outfits+smart+casual+mujer+ecuador+comprar\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                            "device":  "MOBILE",
+                            "page":  1,
+                            "type":  "SEARCH",
+                            "domain":  "google.com",
+                            "countryCode":  "EC",
+                            "languageCode":  "es",
+                            "locationUule":  null,
+                            "resultsPerPage":  10
+                        },
+        "url":  "http://www.google.com/search?q=outfits+smart+casual+mujer+ecuador+comprar\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+        "hasNextPage":  true,
+        "serpProviderCode":  "O",
+        "relatedQueries":  [
+
+                           ],
+        "paidResults":  [
+
+                        ],
+        "paidProducts":  [
+
+                         ],
+        "organicResults":  [
+                               {
+                                   "title":  "Smart casual mujer | Tennis Ecuador",
+                                   "websiteTitle":  "tennis.com.ec",
+                                   "url":  "https://www.tennis.com.ec/t/smart-casual-mujer?srsltid=AU7gw4W5kH0QKtNXGwmL-Cx53tLy3O_TYsrNDaMcupFYS3KB0yeHXcTz",
+                                   "displayedUrl":  "https://www.tennis.com.ec",
+                                   "description":  "Encuentra el equilibrio perfecto con Tennis: moda smart casual para mujer que fusiona elegancia y comodidad. Viste con estilo en cualquier ocasión urbana. - 40% ...",
+                                   "emphasizedKeywords":  [
+                                                              "Tennis: moda smart casual para mujer"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  1
+                               },
+                               {
+                                   "title":  "160 ideas de Outfits Ecuador en 2026 | combinar ropa mujer, moda casual ...",
+                                   "websiteTitle":  "Pinterest",
+                                   "url":  "https://www.pinterest.com/chilita11/outfits-ecuador/",
+                                   "displayedUrl":  "https://www.pinterest.com",
+                                   "date":  "2026-06-11T12:00:00.000Z",
+                                   "description":  "Explora el tablero de Cecilia Zeledon \"outfits Ecuador\" en Pinterest. Ver más ideas sobre combinar ropa mujer, moda casual mujer, ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  2
+                               },
+                               {
+                                   "title":  "Ropa para mujer adulta | Leonisa Ecuador",
+                                   "websiteTitle":  "leonisa.ec",
+                                   "url":  "https://leonisa.ec/collections/ropa-para-mujer?srsltid=AU7gw4UR8YbHRf6LLwPYVPUt-ndjDUiCjUG1RGWAywjXx2rsCUZOBEoi",
+                                   "displayedUrl":  "https://leonisa.ec",
+                                   "description":  "Descubre la ropa de mujer adulta Leonisa. ¡Crea outfits versátiles, cómodos y muy elegantes! Refleja tu personalidad, sintiéndote segura.",
+                                   "emphasizedKeywords":  [
+                                                              "outfits versátiles, cómodos y muy elegantes"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  3
+                               },
+                               {
+                                   "title":  "Ropa para mujer",
+                                   "websiteTitle":  "Chevignon Ecuador",
+                                   "url":  "https://www.chevignon.com.ec/ropa-mujer?srsltid=AU7gw4XpRBLQMA60uBluGWcd4lEWbb5LrWW5-FFpqflgfv63VFy2SFHn",
+                                   "displayedUrl":  "https://www.chevignon.com.ec",
+                                   "description":  "La colección de ropa para mujer de Chevignon tiene todas las prendas necesarias para transformar tu estilo. Vestidos, chaquetas, jeans y más aquí.",
+                                   "emphasizedKeywords":  [
+                                                              "La colección de ropa para mujer de Chevignon"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  4
+                               },
+                               {
+                                   "title":  "KOAJ Ecuador | Ropa, Tenis y Accesorios para Mujer y Hombre.",
+                                   "websiteTitle":  "KOAJ Ecuador",
+                                   "url":  "https://koaj.ec/",
+                                   "displayedUrl":  "https://koaj.ec",
+                                   "description":  "Encuentra ropa con las últimas tendencias de Moda en KOAJ.EC | Jeans, Camisetas, Blusas, Buzos, Chaquetas, Vestidos, Tenis, Accesorios y más ¡Ingresa ya!",
+                                   "emphasizedKeywords":  [
+                                                              "Jeans, Camisetas, Blusas, Buzos, Chaquetas, Vestidos, Tenis, Accesorios y más"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  5
+                               },
+                               {
+                                   "title":  "¿Buscas ropa para mujer en Quito – Ecuador que te inspire a crear outfits diferentes y fáciles de combinar? ✨ Aquí te dejamos una idea de outfit en tendencia que puedes usar en Quito",
+                                   "websiteTitle":  "Instagram · cute_quito",
+                                   "url":  "https://www.instagram.com/p/DO2FwPVEda_/?hl=es",
+                                   "displayedUrl":  "Más de 320 \"me gusta\"  ·  hace 1 año",
+                                   "description":  "Elegancia, tendencia y exclusividad en cada look ✨ Descubre prendas seleccionadas para mujeres que aman vestir diferente y destacar.",
+                                   "emphasizedKeywords":  [
+                                                              "Elegancia, tendencia y exclusividad en cada look"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  6
+                               }
+                           ],
+        "suggestedResults":  [
+
+                             ],
+        "peopleAlsoAsk":  [
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Cómo vestir de forma smart casual para una mujer?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Dónde puedo comprar ropa en línea en Ecuador?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Cómo es un outfit smart casual?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Qué quiere decir vestimenta smart casual?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              }
+                          ],
+        "aiOverview":  {
+                           "type":  "live",
+                           "content":  "Puedes comprar outfits smart casual para mujer en Ecuador a través de tiendas locales y plataformas en línea con envíos a todo el país: De Prati Ecuador: Encuentra una amplia variedad en moda femenina, blusas formales, pantalones de vestir, blazers y zapatos ideales para un estilo de oficina o casual elegante con opción de envío o retiro en tienda.Tennis Ecuador: Ofrece una selección específica de moda smart casual para mujer que mezcla la elegancia con la comodidad urbana.KOAJ Ecuador: Cuenta con prendas en tendencia como jeans oscuros, camisas, blusas y chaquetas fáciles de adaptar a un look semi-formal.Leonisa Ecuador: Dispone de ropa versátil, cómoda y elegante para mujer adulta con envíos a nivel nacional.Chevignon Ecuador: Presenta opciones en vestidos, chaquetas y prendas de corte moderno. Ideas de un Outfit Smart Casual para MujerParte superior: Blusa de tela ligera (seda, satén o algodón fino) en colores neutros como blanco, beige o azul marino, acompañada de un blazer estructurado pero liviano.Parte inferior: Pantalón tipo tailored (de sastreros o corte recto) o un jeans oscuro sin roturas ni desgastes excesivos.Calzado: Mocasines, loafers, balerinas elegantes o tacones bajos/medios (kitten heels).Acccesorios: Joyería minimalista dorada o plateada y un bolso estructurado de tamaño mediano. Si me cuentas para qué ocasión necesitas el outfit (oficina, una cena, evento de día) o cuál es tu presupuesto aproximado, puedo recomendarte combinaciones o tiendas específicas. Si me cuentas para qué ocasión necesitas el outfit (oficina, una cena, evento de día) o cuál es tu presupuesto aproximado, puedo recomendarte combinaciones o tiendas específicas. Profundizar en Modo IALas respuestas de la IA pueden contener errores. Más informaciónCopiado en el portapapelesNo se ha podido copiar en el portapapeles.  Inténtalo de nuevo más tarde.Compartir enlace públicoEste enlace público es válido durante 7 días y comparte un hilo, incluida la información personal que hayas añadido. Este enlace o las copias hechas por otros no se pueden eliminar. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el enlace en este momento. Inténtalo de nuevo más tarde.FacebookGmailXRedditWhatsAppBuena respuestaMala respuestaMás información",
+                           "sources":  [
+
+                                       ]
+                       },
+        "customData":  null,
+        "htmlSnapshotUrl":  "https://api.apify.com/v2/key-value-stores/yv5gkg3FsareuTCwu/records/zCVPhBhbiDKQmdc-0.html?signature=1dH3n9QLmlR6sWmKsPNTA"
+    },
+    {
+        "#debug":  {
+                       "requestId":  "gWdsIxbcVHkvhyV",
+                       "url":  "http://www.google.com/search?q=tienda+online+ropa+oficina+mujer+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "loadedUrl":  "http://www.google.com/search?q=tienda+online+ropa+oficina+mujer+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                       "method":  "GET",
+                       "retryCount":  0,
+                       "errorMessages":  [
+
+                                         ],
+                       "statusCode":  200
+                   },
+        "#error":  false,
+        "searchQuery":  {
+                            "term":  "tienda online ropa oficina mujer ecuador",
+                            "url":  "http://www.google.com/search?q=tienda+online+ropa+oficina+mujer+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+                            "device":  "MOBILE",
+                            "page":  1,
+                            "type":  "SEARCH",
+                            "domain":  "google.com",
+                            "countryCode":  "EC",
+                            "languageCode":  "es",
+                            "locationUule":  null,
+                            "resultsPerPage":  10
+                        },
+        "url":  "http://www.google.com/search?q=tienda+online+ropa+oficina+mujer+ecuador\u0026gl=ec\u0026hl=es\u0026xmobile=1",
+        "hasNextPage":  true,
+        "serpProviderCode":  "OX",
+        "relatedQueries":  [
+
+                           ],
+        "paidResults":  [
+
+                        ],
+        "paidProducts":  [
+
+                         ],
+        "organicResults":  [
+                               {
+                                   "title":  "Ropa Formal para Mujer",
+                                   "websiteTitle":  "H\u0026M Ecuador",
+                                   "url":  "https://ec.hm.com/mujer/ropa-formal",
+                                   "displayedUrl":  "https://ec.hm.com",
+                                   "description":  "Vístete para la oficina con la colección de ropa formal de H\u0026M EC. Encuentra blazers, pantalones, faldas y blusas para un look profesional.",
+                                   "emphasizedKeywords":  [
+                                                              "ropa formal de H\u0026M EC"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  1
+                               },
+                               {
+                                   "title":  "Tienda NAF NAF en Quito",
+                                   "websiteTitle":  "NAF NAF Ecuador",
+                                   "url":  "https://nafnaf.com.ec/collections/tiendas-quito?srsltid=AU7gw4X3jPXcuID9RMmOxgKT3RldXVB30GhCANYrJgcT1Ocaic-UInrY",
+                                   "displayedUrl":  "https://nafnaf.com.ec",
+                                   "description":  "Allí, descubrirás una amplia selección de prendas y accesorios para mujer de moda. Verás tanto vestidos y faldas en tejidos fluidos como jeans y pantalones en ...",
+                                   "emphasizedKeywords":  [
+                                                              "Allí, descubrirás una amplia selección de prendas y accesorios para mujer de moda"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  2
+                               },
+                               {
+                                   "title":  "CH Boutique (@chboutique.uio) · Quito",
+                                   "websiteTitle":  "Instagram · chboutique.uio",
+                                   "url":  "https://www.instagram.com/chboutique.uio/?hl=es",
+                                   "displayedUrl":  "Más de 10,7 k seguidores",
+                                   "description":  "Quito CH BOUTIQUE | Moda Ejecutiva ✨ BLAZERS-PANTALONES Outfits ideales para la mujer ejecutiva Marca ecuatoriana con asesoría personalizada .",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  3
+                               },
+                               {
+                                   "title":  "Distrito 5: Ropa de Mujer Online en Ecuador",
+                                   "websiteTitle":  "Distrito 5",
+                                   "url":  "https://www.distrito-5.com/",
+                                   "displayedUrl":  "https://www.distrito-5.com",
+                                   "description":  "Moda ecuatoriana para mujer: blusas, jeans, faldas y vestidos con nombre de Ecuador. Compra online o visítanos en Quito, Guayaquil, Cuenca y Santo Domingo.",
+                                   "emphasizedKeywords":  [
+                                                              "blusas, jeans, faldas y vestidos"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  4
+                               },
+                               {
+                                   "title":  "Taty Boutique - Lo Mejor en Moda Femenina",
+                                   "websiteTitle":  "Taty Boutique",
+                                   "url":  "https://taty.com.ec/",
+                                   "displayedUrl":  "https://taty.com.ec",
+                                   "description":  "Un concepto innovador en la moda de mujer, ubicados en los principales centros comerciales del país, líder en el segmento de moda femenina y ropa para ...",
+                                   "emphasizedKeywords":  [
+                                                              "ubicados en los principales centros comerciales del país"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  5
+                               },
+                               {
+                                   "title":  "Ivanny Boutique | Vestidos de Gala y Moda Femenina Quito",
+                                   "websiteTitle":  "Ivanny Boutique",
+                                   "url":  "https://ivannyboutique.com/?srsltid=AU7gw4WqMfhcjUtVIKBXw_LLKF8nuHgk9jBROssDuUQXalcQTi90a2Oj",
+                                   "displayedUrl":  "https://ivannyboutique.com",
+                                   "description":  "Moda femenina en Quito para destacar en cada gran ocasión. Outfits de oficina y vestidos para ceremonias y gala. ¡Deslumbra con estilo único hoy!",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  6
+                               },
+                               {
+                                   "title":  "Ropa y Accesorios de Mujer",
+                                   "websiteTitle":  "De Prati",
+                                   "url":  "https://www.deprati.com.ec/mujeres/c/01?srsltid=AU7gw4WybepoDz4iHmn8Zevv0qAswGDi66W6MLhp7HckTd7cqtiBgoU7",
+                                   "displayedUrl":  "https://www.deprati.com.ec",
+                                   "description":  "Encuentra las últimas tendencias en moda de mujer en De Prati. Compra en linea ropa, zapatos, lencería y accesorios. Envíos a todo el Ecuador o retiro en tienda",
+                                   "emphasizedKeywords":  [
+                                                              "Encuentra las últimas tendencias en moda de mujer en De Prati"
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  7
+                               },
+                               {
+                                   "title":  "SIE7E - SIETE | Tienda de ropa online en Ecuador",
+                                   "websiteTitle":  "Sie7e.ec",
+                                   "url":  "https://www.sie7e.ec/",
+                                   "displayedUrl":  "https://www.sie7e.ec",
+                                   "description":  "Productos Chevignon, Esprit, Holborn, Molly Bracken, B.young , Ichi, Veja, On , Hoff y New Balance en Ecuador. ¡Ingresa a nuestra tienda online y compra ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  8
+                               },
+                               {
+                                   "title":  "Tienda Ropa Formal Mujer En Quito",
+                                   "websiteTitle":  "TikTok",
+                                   "url":  "https://www.tiktok.com/discover/tienda-ropa-formal-mujer-en-quito",
+                                   "displayedUrl":  "https://www.tiktok.com",
+                                   "description":  "hace 7 días — Renueva tu estilo con Peri: moda elegante en Quito. Descubre prendas formales y elegantes para el nuevo año. Desde vestidos hasta pantalones, ¡ ...",
+                                   "emphasizedKeywords":  [
+
+                                                          ],
+                                   "siteLinks":  [
+
+                                                 ],
+                                   "productInfo":  {
+
+                                                   },
+                                   "type":  "organic",
+                                   "position":  9
+                               }
+                           ],
+        "suggestedResults":  [
+
+                             ],
+        "peopleAlsoAsk":  [
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Cuáles son las mejores tiendas online en Ecuador?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Dónde comprar ropa en línea de buena calidad?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Qué tiendas de ropa puedo comprar en línea?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              },
+                              {
+                                  "answer":  null,
+                                  "question":  "¿Dónde puedo encontrar ropa de mujer barata y moderna?",
+                                  "title":  null,
+                                  "url":  null,
+                                  "date":  null
+                              }
+                          ],
+        "aiOverview":  {
+                           "type":  "live",
+                           "content":  "Puedes comprar ropa de oficina para mujer en Ecuador a través de las siguientes tiendas en línea con envíos a nivel nacional: De Prati: Ofrece un catálogo amplio de moda femenina, blusas, pantalones de vestir, blazers y accesorios con envíos a todo el Ecuador o retiro en tienda física. H\u0026M Ecuador: Cuenta con una sección dedicada de ropa formal para mujer que incluye blusas con escote en V (desde $19,99), americanas o blazers (desde $44,99), camisas entalladas y pantalones sastre (desde $24,99). Naf Naf Ecuador: Dispone de prendas de vestir elegantes, camisas y conjuntos ideales para oficina disponibles para compra en línea y con presencia en Quito. Olam Fashion Store: Tienda con producción ecuatoriana y ediciones limitadas en Quito y Ambato, con blusas formales y pantalones stretch desde $19,99. CH Boutique: Marca ecuatoriana con enfoque en moda ejecutiva, blazers y pantalones para mujer con asesoría personalizada y envíos a todo el país. ¿Qué tipo de prendas estás buscando (por ejemplo: blazers, pantalones de sastre, vestidos o blusas) o cuál es tu presupuesto aproximado para recomendarte la mejor opción? ¿Qué tipo de prendas estás buscando (por ejemplo: blazers, pantalones de sastre, vestidos o blusas) o cuál es tu presupuesto aproximado para recomendarte la mejor opción? Profundizar en Modo IALas respuestas de la IA pueden contener errores. Más informaciónCopiado en el portapapelesNo se ha podido copiar en el portapapeles.  Inténtalo de nuevo más tarde.Compartir enlace públicoEste enlace público es válido durante 7 días y comparte un hilo, incluida la información personal que hayas añadido. Este enlace o las copias hechas por otros no se pueden eliminar. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el enlace en este momento. Inténtalo de nuevo más tarde.FacebookGmailXRedditWhatsAppBuena respuestaMala respuestaMás información",
+                           "sources":  [
+
+                                       ]
+                       },
+        "customData":  null,
+        "htmlSnapshotUrl":  "https://api.apify.com/v2/key-value-stores/yv5gkg3FsareuTCwu/records/gWdsIxbcVHkvhyV-0.html?signature=1k3aXyeqJu88cuFGJXab"
+    }
+]
