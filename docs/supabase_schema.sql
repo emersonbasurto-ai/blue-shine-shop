@@ -48,22 +48,23 @@ CREATE TRIGGER trg_lead_update
 -- 4. Seguridad de Nivel de Fila (Row Level Security - RLS)
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
--- Política A: Inserción pública (Anon) - El formulario del Landing Page puede guardar prospectos
+-- Política A: Inserción pública (Anon) - El formulario del Landing Page puede registrar prospectos
 CREATE POLICY "Permitir insercion publica desde el landing" 
 ON public.leads 
 FOR INSERT 
 TO anon, authenticated 
 WITH CHECK (true);
 
--- Política B: Solo usuarios autenticados (Vendedor/Admin) pueden ver y actualizar los prospectos
-CREATE POLICY "Permitir lectura solo a agentes autenticados" 
+-- Política B: Lectura de prospectos (Permite sincronizar con el panel CRM)
+CREATE POLICY "Permitir lectura para el CRM" 
 ON public.leads 
 FOR SELECT 
-TO authenticated 
+TO anon, authenticated 
 USING (true);
 
-CREATE POLICY "Permitir actualizacion solo a agentes autenticados" 
+-- Política C: Actualización de notas y estado (Contactado / No contactado)
+CREATE POLICY "Permitir actualizacion desde el CRM" 
 ON public.leads 
 FOR UPDATE 
-TO authenticated 
+TO anon, authenticated 
 USING (true);

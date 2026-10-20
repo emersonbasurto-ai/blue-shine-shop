@@ -1,10 +1,10 @@
 // js/supabase-config.js
 // Manejo de conexión con Supabase con fallback local resiliente
 
-// Variables por defecto (se pueden sobreescribir vía localStorage o inyección de entorno)
+// Variables por defecto (conectado a Supabase Cloud con fallback local resiliente)
 const CONFIG = {
-  SUPABASE_URL: window.ENV_SUPABASE_URL || localStorage.getItem('BLUE_SHINE_SUPABASE_URL') || '',
-  SUPABASE_ANON_KEY: window.ENV_SUPABASE_ANON_KEY || localStorage.getItem('BLUE_SHINE_SUPABASE_KEY') || '',
+  SUPABASE_URL: window.ENV_SUPABASE_URL || localStorage.getItem('BLUE_SHINE_SUPABASE_URL') || 'https://dcatufozlsymqgeznvpk.supabase.co',
+  SUPABASE_ANON_KEY: window.ENV_SUPABASE_ANON_KEY || localStorage.getItem('BLUE_SHINE_SUPABASE_KEY') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRjYXR1Zm96bHN5bXFnZXpudnBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI1MjI5MjksImV4cCI6MjEwODA5ODkyOX0.7_QSFm3ronOa54oXx2SS35qijXgz8b9HSRu3MmWj1L4',
   ADMIN_PIN: 'blueshine2026' // PIN de acceso rápido para demostración / agente de ventas
 };
 
