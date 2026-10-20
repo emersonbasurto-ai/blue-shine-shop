@@ -61,18 +61,18 @@ Este documento es la hoja de ruta maestra del proyecto dividida en **5 Fases**, 
 
 
 ### FASE 5: Conexión Automática GitHub ↔ Vercel y Despliegue Continuo (CI/CD)
-1. **Creación y Conexión del Repositorio en GitHub (`GITHUB_TOKEN`):**
+- [x] **Creación y Conexión del Repositorio en GitHub:**
    - Inicialización de Git local (`git init`, rama `main`).
-   - Creación automática del repositorio remoto mediante la API de GitHub (`POST /user/repos`).
-   - Primer `git push` seguro (protegiendo `.env`).
-2. **Creación y Vinculación del Proyecto en Vercel (`VERCEL_TOKEN`):**
+   - Repositorio remoto conectado: `https://github.com/emersonbasurto-ai/blue-shine-shop`.
+   - `git push` seguro completado (protegiendo `.env` y credenciales).
+- [ ] **Creación y Vinculación del Proyecto en Vercel (`VERCEL_TOKEN`):**
    - Creación/vinculación automática del proyecto en Vercel vía API/CLI (`vercel link --yes`).
    - Inyección automática de las variables de entorno de Supabase en Vercel (`SUPABASE_URL`, `SUPABASE_ANON_KEY`).
    - Extracción automática de `VERCEL_ORG_ID` y `VERCEL_PROJECT_ID` y registro en `.env`.
-3. **Pipeline de Despliegue Automático (CI/CD):**
+- [ ] **Pipeline de Despliegue Automático (CI/CD):**
    - Vinculación del repositorio GitHub con Vercel.
    - Cada `git push` a la rama `main` actualizará automáticamente la web en producción sin intervención manual.
-4. **Verificación y Lanzamiento en Vivo:**
+- [ ] **Verificación y Lanzamiento en Vivo:**
    - Despliegue inicial a producción (`vercel --prod`), verificación HTTP 200 y entrega de la **URL pública final (`.vercel.app`)**.
 
 ---
