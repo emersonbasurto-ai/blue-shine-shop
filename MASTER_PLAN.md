@@ -78,6 +78,31 @@ Este documento es la hoja de ruta maestra del proyecto dividida en **5 Fases**, 
 
 ---
 
+### FASE 6: Cumplimiento Normativo, Políticas de Privacidad y LOPDP Ecuador (COMPLETADA)
+- [x] **Investigación Legal Exhaustiva:**
+  - Diagnóstico de la **Ley Orgánica de Protección de Datos Personales (LOPDP)** del Ecuador y su Reglamento.
+  - Ley Orgánica de Defensa del Consumidor (LODC) para comercio electrónico y ventas por catálogo en Ecuador.
+- [x] **Página de Política de Privacidad y Tratamiento de Datos ([politicas-privacidad.html](file:///c:/Users/emers/OneDrive/Escritorio/ANTIGRAVITY%20MACRO/politicas-privacidad.html)):**
+  - Identidad del Responsable (BLUE SHINESHOP en Manta, Ecuador).
+  - Finalidades legítimas del tratamiento (asesoría de tallas, coordinación logística Servientrega, WhatsApp).
+  - Encargados del tratamiento (Supabase Inc., Vercel Inc., Servientrega Ecuador, Meta/WhatsApp).
+  - Mecanismos y plazos para ejercer Derechos ARCO+P (Acceso, Rectificación, Cancelación, Oposición, Portabilidad).
+  - Plazos de retención tributaria ante el SRI.
+- [x] **Página de Términos, Condiciones y Envíos ([terminos-condiciones.html](file:///c:/Users/emers/OneDrive/Escritorio/ANTIGRAVITY%20MACRO/terminos-condiciones.html)):**
+  - Precios oficiales en USD y medios de pago (Pichincha, Guayaquil, DeUna, Tarjetas, Contraentrega).
+  - Tiempos de despacho Servientrega desde Manta (24h a 48h ciudades principales, 48h a 72h resto del país).
+  - Política de cambios de talla con garantía de satisfacción de 15 días.
+  - Garantía por defectos de confección y derecho de retracto conforme a la LODC.
+- [x] **Trazabilidad de Consentimiento en Base de Datos (Consent Logging):**
+  - Columnas agregadas a Supabase `public.leads`: `privacy_accepted`, `privacy_accepted_at`, `privacy_version`.
+  - Checkbox explícito de consentimiento (sin premarcar) en el formulario de la Landing.
+- [x] **Banner de Cookies & Almacenamiento Local:**
+  - Notificación no invasiva con persistencia en `localStorage`.
+- [x] **Panel CRM:**
+  - Badge de verificación de consentimiento LOPDP para agentes de ventas.
+
+---
+
 ## 📋 Checklist de Credenciales en `.env`
 
 | Variable | Dónde obtenerla | Permisos / Notas |

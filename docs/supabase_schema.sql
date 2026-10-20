@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS public.leads (
     status TEXT NOT NULL DEFAULT 'NO_CONTACTADO' CHECK (status IN ('NO_CONTACTADO', 'CONTACTADO', 'DESCARTADO', 'CERRADO')),
     notes TEXT DEFAULT '',
     contacted_at TIMESTAMP WITH TIME ZONE,
+    privacy_accepted BOOLEAN NOT NULL DEFAULT true,
+    privacy_accepted_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()),
+    privacy_version TEXT DEFAULT 'v1.0-2026',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );

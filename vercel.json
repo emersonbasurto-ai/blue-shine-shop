@@ -5,6 +5,14 @@
     {
       "source": "/admin",
       "destination": "/admin.html"
+    },
+    {
+      "source": "/politicas-privacidad",
+      "destination": "/politicas-privacidad.html"
+    },
+    {
+      "source": "/terminos-condiciones",
+      "destination": "/terminos-condiciones.html"
     }
   ]
 }

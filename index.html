@@ -660,14 +660,25 @@
             </div>
           </div>
 
+          <!-- Consentimiento LOPDP Ecuador -->
+          <div class="pt-3 pb-1 text-left">
+            <label class="flex items-start gap-2.5 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-brandCoral/50 transition cursor-pointer select-none">
+              <input type="checkbox" id="privacyConsentCheckbox" required class="mt-0.5 w-4 h-4 accent-[#EF8A56] rounded shrink-0 cursor-pointer" />
+              <span class="text-xs text-slate-300 leading-snug">
+                He leído y acepto la <a href="politicas-privacidad.html" target="_blank" class="text-brandCoral underline font-semibold hover:text-white transition">Política de Privacidad</a> y autorizo el tratamiento de mis datos personales para recibir asesoría de tallas y comunicaciones de BLUE SHINESHOP conforme a la <strong>LOPDP de Ecuador</strong>.
+              </span>
+            </label>
+          </div>
+
           <!-- Botón de Envío -->
           <div class="pt-2 text-center">
             <button type="submit" id="submitLeadBtn" class="btn-primary-shine w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold flex items-center justify-center gap-2 mx-auto active:scale-[0.98] transition shadow-xl">
               <i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"></i>
               <span>Enviar Respuestas y Recibir Asesoría en WhatsApp</span>
             </button>
-            <p class="text-[11px] text-slate-400 mt-2">
-              🔒 Tus datos son 100% privados. Solo los usaremos para brindarte asesoría de talla.
+            <p class="text-[11px] text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Tus datos están protegidos bajo la Ley Orgánica de Protección de Datos Personales del Ecuador.</span>
             </p>
           </div>
 
@@ -839,32 +850,135 @@
   </section>
 
   <!-- ============================================================== -->
-  <!-- 9. FOOTER RESPONSIVE                                           -->
+  <!-- 9. FOOTER RESPONSIVE Y LEGAL LOPDP                              -->
   <!-- ============================================================== -->
-  <footer class="bg-brandNavyDark text-slate-400 py-10 sm:py-12 px-4 border-t border-white/10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full overflow-hidden border border-white/30 shrink-0">
-          <img src="public/assets/logo-full.jpg" alt="Blue Shine Shop" class="w-full h-full object-cover" width="40" height="40" loading="lazy" />
+  <footer class="bg-brandNavyDark text-slate-400 py-12 px-4 sm:px-6 border-t border-white/10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10 text-xs">
+      
+      <!-- Columna 1: Marca y Origen -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full overflow-hidden border border-white/30 shrink-0">
+            <img src="public/assets/logo-full.jpg" alt="Blue Shine Shop" class="w-full h-full object-cover" width="40" height="40" loading="lazy" />
+          </div>
+          <div>
+            <span class="font-script-brand text-2xl text-white font-bold block leading-none">Blue.Shine</span>
+            <span class="text-[9px] tracking-widest text-brandCoral block uppercase font-semibold mt-0.5">Desk-to-Dinner &bull; Ecuador</span>
+          </div>
         </div>
-        <div class="text-left">
-          <span class="font-script-brand text-xl text-white font-bold">Blue.Shine</span>
-          <span class="text-[9px] tracking-widest text-brandCoral block uppercase">Manta &bull; Envíos a todo el Ecuador</span>
+        <p class="text-slate-300 leading-relaxed">
+          Moda femenina inteligente para ejecutivas modernas. Confección ecuatoriana de alta durabilidad con despachos diarios desde <strong>Manta, Manabí</strong>.
+        </p>
+        <div class="flex items-center gap-2 text-[11px] text-emerald-400 font-semibold">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Cumplimiento LOPDP Ecuador Verificado</span>
         </div>
       </div>
 
-      <div class="text-xs space-y-1">
-        <p>&copy; 2026 BLUE SHINESHOP. Todos los derechos reservados.</p>
-        <p>Sastrería femenina moderna Desk-to-Dinner &bull; Despachos vía Servientrega.</p>
+      <!-- Columna 2: Políticas Legales LOPDP -->
+      <div class="space-y-2">
+        <h4 class="text-white font-bold text-sm tracking-wide uppercase text-xs">Políticas y Legal</h4>
+        <ul class="space-y-2 text-slate-300">
+          <li>
+            <a href="politicas-privacidad.html" class="hover:text-brandCoral transition flex items-center gap-1.5">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-brandCoral"></i>
+              <span>Política de Privacidad (LOPDP)</span>
+            </a>
+          </li>
+          <li>
+            <a href="terminos-condiciones.html" class="hover:text-brandCoral transition flex items-center gap-1.5">
+              <i data-lucide="scale" class="w-3.5 h-3.5 text-brandCoral"></i>
+              <span>Términos y Condiciones de Venta</span>
+            </a>
+          </li>
+          <li>
+            <a href="terminos-condiciones.html#cambios" class="hover:text-brandCoral transition flex items-center gap-1.5">
+              <i data-lucide="repeat" class="w-3.5 h-3.5 text-brandCoral"></i>
+              <span>Garantía y Cambios de Talla (15 días)</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:privacidad@blueshineshop.com" class="hover:text-brandCoral transition flex items-center gap-1.5">
+              <i data-lucide="user-x" class="w-3.5 h-3.5 text-brandCoral"></i>
+              <span>Ejercer Derechos ARCO de Datos</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div>
-        <a href="admin.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white hover:bg-white/10 transition">
-          <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i> Panel Agente de Ventas
-        </a>
+      <!-- Columna 3: Envíos y Pagos -->
+      <div class="space-y-2">
+        <h4 class="text-white font-bold text-sm tracking-wide uppercase text-xs">Envíos y Medios de Pago</h4>
+        <ul class="space-y-2 text-slate-300">
+          <li class="flex items-center gap-1.5">
+            <i data-lucide="truck" class="w-3.5 h-3.5 text-brandCoral"></i>
+            <span>Servientrega Nacional (24h a 48h)</span>
+          </li>
+          <li class="flex items-center gap-1.5">
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brandCoral"></i>
+            <span>Transferencias Pichincha, Guayaquil, DeUna</span>
+          </li>
+          <li class="flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brandCoral"></i>
+            <span>Tarjetas de Crédito y Débito</span>
+          </li>
+          <li class="flex items-center gap-1.5">
+            <i data-lucide="package" class="w-3.5 h-3.5 text-brandCoral"></i>
+            <span>Pago Contraentrega en ciudades clave</span>
+          </li>
+        </ul>
       </div>
+
+      <!-- Columna 4: Contacto y Panel Interno -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm tracking-wide uppercase text-xs">Atención al Cliente</h4>
+        <p class="text-slate-300">
+          Lunes a Sábado: 08:30 - 18:30<br>
+          WhatsApp: <a href="https://wa.me/593992614118" target="_blank" class="text-brandCoral font-bold hover:underline">+593 99 261 4118</a>
+        </p>
+        <div class="pt-2">
+          <a href="admin.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 text-xs text-slate-300 hover:text-white hover:bg-white/10 transition shadow-sm">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i>
+            <span>Panel Agente de Ventas</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra Inferior de Copyright -->
+    <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left text-[11px] text-slate-400">
+      <p>&copy; 2026 BLUE SHINESHOP. Todos los derechos reservados. Manta, Ecuador.</p>
+      <p>Protegido bajo la Ley Orgánica de Protección de Datos Personales (LOPDP) de la República del Ecuador.</p>
     </div>
   </footer>
+
+  <!-- ============================================================== -->
+  <!-- 10. BANNER FLOTANTE DE COOKIES Y PRIVACIDAD LOPDP              -->
+  <!-- ============================================================== -->
+  <aside id="cookieConsentBanner" class="hidden fixed bottom-16 md:bottom-5 left-4 right-4 md:left-auto md:right-5 md:max-w-md z-40 bg-white/95 backdrop-blur-md border border-slate-200/90 p-4 rounded-2xl shadow-2xl text-slate-700 text-xs animate-fade-in">
+    <div class="flex items-start gap-3">
+      <div class="w-9 h-9 rounded-xl bg-brandCoral/15 text-brandCoral flex items-center justify-center shrink-0">
+        <i data-lucide="shield-check" class="w-5 h-5"></i>
+      </div>
+      <div class="space-y-2.5 flex-grow">
+        <p class="leading-snug text-slate-600 text-xs">
+          Utilizamos almacenamiento local y cookies técnicas para recordar tus respuestas de talla y garantizar una compra segura, conforme a la <strong>LOPDP de Ecuador</strong>.
+        </p>
+        <div class="flex items-center gap-2">
+          <button id="acceptCookiesBtn" class="bg-brandNavy text-white px-3.5 py-1.5 rounded-lg font-bold text-[11px] hover:bg-brandNavyDark transition shadow-sm active:scale-95">
+            Aceptar y Continuar
+          </button>
+          <a href="politicas-privacidad.html" target="_blank" class="text-brandCoral underline font-semibold text-[11px] hover:text-brandNavy transition">
+            Ver Política
+          </a>
+        </div>
+      </div>
+      <button id="dismissCookiesBtn" class="text-slate-400 hover:text-slate-600 transition p-1">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </aside>
 
   <!-- ============================================================== -->
   <!-- 10. BARRA FLOTANTE FIJA INFERIOR EN MÓVIL (THUMB-ZONE CTA)     -->
@@ -971,7 +1085,7 @@
       // Calcular puntuación y temperatura
       const result = ScoringEngine.calculate(answers);
 
-      // Crear objeto del prospecto para guardar en base de datos
+      // Crear objeto del prospecto para guardar en base de datos con trazabilidad LOPDP
       const leadPayload = {
         full_name: fullName,
         phone: phone,
@@ -980,7 +1094,10 @@
         score: result.score,
         temperature: result.temperature,
         status: 'NO_CONTACTADO',
-        notes: `Interés en: ${answers.prenda}. Preocupación: ${answers.duda_principal}`
+        notes: `Interés en: ${answers.prenda}. Preocupación: ${answers.duda_principal}`,
+        privacy_accepted: true,
+        privacy_accepted_at: new Date().toISOString(),
+        privacy_version: 'v1.0-2026'
       };
 
       try {
@@ -1016,6 +1133,30 @@
         lucide.createIcons();
       }
     });
+
+    // Control del Banner de Cookies y Consentimiento LOPDP
+    (function initCookieBanner() {
+      const banner = document.getElementById('cookieConsentBanner');
+      const acceptBtn = document.getElementById('acceptCookiesBtn');
+      const dismissBtn = document.getElementById('dismissCookiesBtn');
+
+      if (!banner) return;
+
+      if (!localStorage.getItem('blue_shine_cookies_accepted')) {
+        setTimeout(() => {
+          banner.classList.remove('hidden');
+          lucide.createIcons();
+        }, 1200);
+      }
+
+      function closeBanner() {
+        banner.classList.add('hidden');
+        localStorage.setItem('blue_shine_cookies_accepted', 'true');
+      }
+
+      if (acceptBtn) acceptBtn.addEventListener('click', closeBanner);
+      if (dismissBtn) dismissBtn.addEventListener('click', closeBanner);
+    })();
   </script>
 </body>
 </html>

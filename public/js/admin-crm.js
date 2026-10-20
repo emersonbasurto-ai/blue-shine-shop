@@ -164,6 +164,7 @@ const AdminCRM = {
               <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full ${isContacted ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">
                 ${isContacted ? '✓ Contactado' : '⏳ Pendiente'}
               </span>
+              ${lead.privacy_accepted ? '<span class="text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">🛡️ LOPDP OK</span>' : ''}
               <span class="text-xs text-slate-400">&bull; ${timeAgo}</span>
             </div>
 
