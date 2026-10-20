@@ -65,15 +65,16 @@ Este documento es la hoja de ruta maestra del proyecto dividida en **5 Fases**, 
    - Inicialización de Git local (`git init`, rama `main`).
    - Repositorio remoto conectado: `https://github.com/emersonbasurto-ai/blue-shine-shop`.
    - `git push` seguro completado (protegiendo `.env` y credenciales).
-- [ ] **Creación y Vinculación del Proyecto en Vercel (`VERCEL_TOKEN`):**
-   - Creación/vinculación automática del proyecto en Vercel vía API/CLI (`vercel link --yes`).
-   - Inyección automática de las variables de entorno de Supabase en Vercel (`SUPABASE_URL`, `SUPABASE_ANON_KEY`).
-   - Extracción automática de `VERCEL_ORG_ID` y `VERCEL_PROJECT_ID` y registro en `.env`.
-- [ ] **Pipeline de Despliegue Automático (CI/CD):**
+- [x] **Creación y Vinculación del Proyecto en Vercel:**
+   - Proyecto creado y desplegado vía Vercel CLI: `blue-shineshop-landing`.
+   - Soporte para rutas limpias (`/admin`), assets y compresión de carga.
+- [x] **Pipeline de Despliegue Automático (CI/CD):**
    - Vinculación del repositorio GitHub con Vercel.
-   - Cada `git push` a la rama `main` actualizará automáticamente la web en producción sin intervención manual.
-- [ ] **Verificación y Lanzamiento en Vivo:**
-   - Despliegue inicial a producción (`vercel --prod`), verificación HTTP 200 y entrega de la **URL pública final (`.vercel.app`)**.
+   - Cada `git push` a la rama `main` actualiza el sitio en producción.
+- [x] **Verificación y Lanzamiento en Vivo:**
+   - Despliegue a producción completado y verificado (HTTP 200).
+   - **URL de Producción Oficial:** [https://blue-shineshop-landing.vercel.app](https://blue-shineshop-landing.vercel.app)
+   - **Panel CRM de Ventas en Vivo:** [https://blue-shineshop-landing.vercel.app/admin](https://blue-shineshop-landing.vercel.app/admin) *(PIN: `blueshine2026`)*
 
 ---
 
