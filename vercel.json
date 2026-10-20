@@ -1,26 +1,10 @@
 {
-  "version": 2,
-  "name": "blue-shineshop-landing",
+  "outputDirectory": ".",
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/admin",
-      "dest": "/admin.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/public/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "source": "/admin",
+      "destination": "/admin.html"
     }
   ]
 }

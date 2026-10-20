@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>BLUE SHINESHOP | Moda Smart Casual & Oficina Femenina en Ecuador</title>
+  <meta name="description" content="Sastrería femenina moderna Desk-to-Dinner en Ecuador. Blazers y palazzos diseñados para estilizar tu figura con telas anti-arrugas y envíos express por Servientrega desde Manta." />
+
+  <!-- Favicons Oficiales -->
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="public/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="public/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+  <meta name="theme-color" content="#2B325E" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#2B325E',
+            brandNavyDark: '#12162E',
+            brandNavyLight: '#3A4378',
+            brandCoral: '#EF8A56',
+            brandCoralHover: '#F7A174',
+            brandCoralSoft: '#FDEEE7',
+            brandCream: '#FAF8F5',
+            brandMuted: '#64748B'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <style>
+    /* Prevención estricta de desbordamiento horizontal en móviles */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Asegurar que los inputs no activen auto-zoom en iOS Safari (mínimo 16px) */
+    @media screen and (max-width: 767px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+
+    /* Área segura para barras inferiores en iPhone notch / pill */
+    .safe-bottom-padding {
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+    }
+
+    /* Transición suave para drawer móvil */
+    #mobileDrawer {
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-slate-800 antialiased selection:bg-[#EF8A56] selection:text-white pb-16 md:pb-0">
+
+  <!-- ============================================================== -->
+  <!-- 1. BARRA SUPERIOR DE ANUNCIO & CONFIANZA NACIONAL              -->
+  <!-- ============================================================== -->
+  <aside aria-label="Aviso de Envíos Nacionales" class="bg-brandNavy text-white py-2 px-3 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium tracking-wide">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center">
+      <div class="flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
+        <span>🇪🇨 <strong>Despachos diarios desde Manta</strong> por Servientrega (24-48h a todo el país)</span>
+      </div>
+      <div class="flex items-center justify-center gap-3 text-slate-300 text-[10px] sm:text-xs">
+        <span class="hidden sm:inline">✨ Garantía de Calce 100%</span>
+        <a href="admin.html" class="underline text-brandCoral hover:text-white transition flex items-center gap-1 font-semibold py-0.5">
+          <i data-lucide="lock" class="w-3 h-3 text-brandCoral"></i> Acceso CRM
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================== -->
+  <!-- 2. NAVBAR PRINCIPAL RESPONSIVE (MÓVIL & ESCRITORIO)            -->
+  <!-- ============================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Logo Oficial de la Marca -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandCoral rounded-full">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brandNavy shadow-sm group-hover:scale-105 transition-transform duration-300 shrink-0">
+          <img src="public/assets/logo-full.jpg" alt="Logo BLUE SHINESHOP" class="w-full h-full object-cover" width="48" height="48" />
+        </div>
+        <div class="flex flex-col text-left">
+          <span class="font-script-brand text-xl sm:text-2xl font-bold tracking-tight text-brandNavy block leading-none">Blue.Shine</span>
+          <span class="text-[9px] sm:text-[10px] tracking-[0.22em] font-semibold text-brandCoral uppercase block mt-0.5 sm:mt-1">S H O P &bull; ECUADOR</span>
+        </div>
+      </a>
+
+      <!-- Enlaces de Navegación Escritorio (Ocultos en Móvil) -->
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-600">
+        <a href="#beneficios" class="hover:text-brandNavy transition focus-visible:ring-2 focus-visible:ring-brandCoral rounded-md px-1">¿Por qué Blue Shine?</a>
+        <a href="#coleccion" class="hover:text-brandNavy transition focus-visible:ring-2 focus-visible:ring-brandCoral rounded-md px-1">Colección Desk-to-Dinner</a>
+        <a href="#quiz" class="hover:text-brandCoral transition font-bold flex items-center gap-1 focus-visible:ring-2 focus-visible:ring-brandCoral rounded-md px-1">
+          <i data-lucide="sparkles" class="w-4 h-4 text-brandCoral"></i> Encontrar mi Talla
+        </a>
+        <a href="#testimonios" class="hover:text-brandNavy transition focus-visible:ring-2 focus-visible:ring-brandCoral rounded-md px-1">Opiniones</a>
+        <a href="#faq" class="hover:text-brandNavy transition focus-visible:ring-2 focus-visible:ring-brandCoral rounded-md px-1">FAQ</a>
+      </nav>
+
+      <!-- Botones de Acción (Desktop CTA + Mobile Hamburger) -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- CTA Escritorio -->
+        <a href="#quiz" class="hidden sm:inline-flex btn-primary-shine px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold items-center gap-1.5 shadow-sm active:scale-95 transition">
+          <span>Test de Outfit</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Botón Rápido de WhatsApp en Móvil -->
+        <a href="https://wa.me/593990000000?text=Hola%20BLUE%20SHINESHOP!%20Quiero%20asesor%C3%ADa%20de%20talla%20para%20el%20Set%20Ejecutivo%20✨" target="_blank"
+           aria-label="Contactar por WhatsApp"
+           class="md:hidden w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md active:scale-95 transition">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+        </a>
+
+        <!-- Botón Hamburguesa Móvil (Mínimo 44x44px touch target) -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Abrir Menú de Navegación" aria-expanded="false"
+                class="md:hidden w-11 h-11 rounded-xl bg-slate-100 hover:bg-slate-200 text-brandNavy flex items-center justify-center cursor-pointer transition active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandCoral">
+          <i id="menuIconBars" data-lucide="menu" class="w-6 h-6"></i>
+          <i id="menuIconClose" data-lucide="x" class="w-6 h-6 hidden"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- DRAWER MÓVIL RESPONSIVE (SLIDE-DOWN MENÚ DE NAVEGACIÓN)        -->
+  <!-- ============================================================== -->
+  <div id="mobileBackdrop" onclick="closeMobileMenu()" class="fixed inset-0 z-40 bg-brandNavyDark/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <div id="mobileDrawer" class="fixed top-16 sm:top-20 inset-x-0 z-50 bg-white border-b border-slate-200 shadow-2xl p-5 -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-out md:hidden flex flex-col gap-3 rounded-b-3xl">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+      <div class="flex items-center gap-2">
+        <img src="public/assets/logo-full.jpg" alt="Logo" class="w-8 h-8 rounded-full object-cover border border-brandNavy/20" />
+        <span class="font-bold text-sm text-brandNavy">Menú Principal</span>
+      </div>
+      <span class="text-[10px] font-semibold text-brandCoral uppercase tracking-wider bg-brandCoralSoft px-2.5 py-1 rounded-full">
+        Manta &bull; Servientrega
+      </span>
+    </div>
+
+    <nav aria-label="Navegación móvil" class="flex flex-col gap-1 text-sm font-semibold text-slate-700">
+      <a href="#beneficios" onclick="closeMobileMenu()" class="px-3.5 py-3 rounded-xl hover:bg-slate-100 active:bg-slate-200 transition flex items-center justify-between">
+        <span class="flex items-center gap-2.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-brandNavy"></i>
+          <span>¿Por qué Blue Shine?</span>
+        </span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+      </a>
+
+      <a href="#coleccion" onclick="closeMobileMenu()" class="px-3.5 py-3 rounded-xl hover:bg-slate-100 active:bg-slate-200 transition flex items-center justify-between">
+        <span class="flex items-center gap-2.5">
+          <i data-lucide="layers" class="w-4 h-4 text-brandNavy"></i>
+          <span>Colección Desk-to-Dinner</span>
+        </span>
+        <span class="text-[10px] text-brandCoral font-bold bg-brandCoral/10 px-2 py-0.5 rounded-full">$69.99 Set</span>
+      </a>
+
+      <a href="#quiz" onclick="closeMobileMenu()" class="px-3.5 py-3 rounded-xl bg-brandCoral/10 text-brandCoral hover:bg-brandCoral/20 transition flex items-center justify-between font-bold">
+        <span class="flex items-center gap-2.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-brandCoral"></i>
+          <span>Test de Talla & Scoring</span>
+        </span>
+        <span class="text-[10px] bg-brandCoral text-white px-2 py-0.5 rounded-full">🔥 Gratis</span>
+      </a>
+
+      <a href="#testimonios" onclick="closeMobileMenu()" class="px-3.5 py-3 rounded-xl hover:bg-slate-100 active:bg-slate-200 transition flex items-center justify-between">
+        <span class="flex items-center gap-2.5">
+          <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
+          <span>Opiniones (+800 Clientas)</span>
+        </span>
+        <span class="text-xs text-amber-500 font-bold">4.9/5 ★</span>
+      </a>
+
+      <a href="#faq" onclick="closeMobileMenu()" class="px-3.5 py-3 rounded-xl hover:bg-slate-100 active:bg-slate-200 transition flex items-center justify-between">
+        <span class="flex items-center gap-2.5">
+          <i data-lucide="help-circle" class="w-4 h-4 text-brandNavy"></i>
+          <span>Preguntas Frecuentes</span>
+        </span>
+        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+      </a>
+    </nav>
+
+    <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+      <a href="https://wa.me/593990000000?text=Hola%20BLUE%20SHINESHOP!%20Quiero%20asesor%C3%ADa%20de%20talla%20para%20el%20Set%20Ejecutivo%20✨" target="_blank"
+         class="w-full py-3 rounded-xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm active:scale-95 transition">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Hablar con Asesora por WhatsApp</span>
+      </a>
+
+      <a href="admin.html" onclick="closeMobileMenu()" class="text-center py-2 text-xs font-semibold text-slate-500 hover:text-brandNavy transition flex items-center justify-center gap-1.5">
+        <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i>
+        <span>Acceso CRM de Ventas</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 3. HERO SECTION MOBILE-FIRST (IMPACTO & AUTORIDAD)             -->
+  <!-- ============================================================== -->
+  <section class="relative bg-gradient-to-b from-[#2B325E] via-[#22284C] to-[#1A1F3B] text-white pt-8 sm:pt-14 md:pt-20 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <!-- Efectos de Luz de Fondo -->
+    <div class="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-brandCoral/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-60 sm:w-80 h-60 sm:h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+      
+      <!-- Columna Izquierda: Copy Persuasivo Mobile-First -->
+      <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
+        
+        <!-- Badge Superior -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] sm:text-xs md:text-sm font-semibold tracking-wide text-brandCoral backdrop-blur-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>COLECCIÓN SMART CASUAL 2026 &bull; DESK-TO-DINNER</span>
+        </div>
+
+        <!-- Titular Fluido Mobile-First -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.14] sm:leading-[1.15] text-balance">
+          Luce con poder en la oficina. <br class="hidden sm:block" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#EF8A56] to-[#F7A174]">Brilla con estilo al salir.</span>
+        </h1>
+
+        <!-- Subtítulo Adaptativo -->
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+          Sastrería moderna creada para la silueta de la mujer en Ecuador. Cortes de tiro alto que estilizan tu cintura, telas suaves anti-arrugas y asesoría de talla 1-a-1 antes de enviar tu paquete desde Manta.
+        </p>
+
+        <!-- Botones de Acción (Touch Targets Mínimo 48px) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1 sm:pt-2">
+          <a href="#quiz" class="btn-primary-shine w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold flex items-center justify-center gap-2.5 text-center active:scale-[0.98]">
+            <i data-lucide="check-circle" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"></i>
+            <span>Encontrar Mi Talla y Ver Descuentos</span>
+          </a>
+          <a href="#coleccion" class="w-full sm:w-auto px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-semibold border border-white/30 text-white hover:bg-white/10 transition text-center flex items-center justify-center gap-2 active:scale-[0.98]">
+            <i data-lucide="shopping-bag" class="w-4 h-4 sm:w-5 sm:h-5 text-brandCoral shrink-0"></i>
+            <span>Ver Colección ($69.99 Set)</span>
+          </a>
+        </div>
+
+        <!-- Prueba Social Compacta y Fluida -->
+        <div class="pt-4 sm:pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-1 text-amber-400">
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400"></i>
+            <span class="text-white font-bold ml-1">4.9/5</span>
+          </div>
+          <span class="text-white/30">&bull;</span>
+          <div>+800 clientas en Ecuador</div>
+          <span class="hidden sm:inline text-white/30">&bull;</span>
+          <div class="flex items-center gap-1 text-emerald-400 font-medium">
+            <i data-lucide="truck" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> Servientrega Express
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna Derecha: Tarjeta Visual de Producto Estrella (Mobile Optimizado) -->
+      <div class="lg:col-span-5 relative flex justify-center w-full max-w-sm sm:max-w-md mx-auto">
+        
+        <div class="relative w-full bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-white/20 shadow-2xl">
+          
+          <!-- Badge Oferta Lanzamiento -->
+          <div class="absolute -top-3 -right-2 sm:-right-3 bg-brandCoral text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1 animate-pulse-subtle">
+            <i data-lucide="flame" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> BUNDLE ESTRELLA -35%
+          </div>
+
+          <!-- Imagen / Mockup Representativo -->
+          <div class="relative h-64 sm:h-80 rounded-xl sm:rounded-2xl overflow-hidden bg-brandNavyDark border border-white/10 flex items-center justify-center group">
+            <img src="public/assets/logo-full.jpg" alt="Set Ejecutivo Shine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-95" width="400" height="320" />
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-brandNavyDark via-transparent to-transparent"></div>
+
+            <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 text-white">
+              <span class="text-[10px] sm:text-xs uppercase tracking-widest text-brandCoral font-bold">Best Seller Desk-to-Dinner</span>
+              <h3 class="text-lg sm:text-xl font-bold">Set Ejecutivo Shine</h3>
+              <p class="text-[11px] sm:text-xs text-slate-300">Blazer Sastre Entallado + Pantalón Palazzo Tiro Alto</p>
+            </div>
+          </div>
+
+          <!-- Detalles de Precios Transparentes -->
+          <div class="mt-3 sm:mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs text-slate-400 line-through">Precio Normal: $110.00</span>
+              <div class="text-xl sm:text-2xl font-extrabold text-white flex items-baseline gap-1">
+                <span class="text-brandCoral">$69.99</span>
+                <span class="text-[10px] sm:text-xs text-slate-300 font-normal">USD (Set)</span>
+              </div>
+            </div>
+            <a href="#quiz" class="btn-primary-shine px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider active:scale-95 transition">
+              Pedir con Asesoría
+            </a>
+          </div>
+
+          <!-- Ventajas Rápidas -->
+          <div class="grid grid-cols-3 gap-1.5 mt-2.5 pt-2.5 border-t border-white/10 text-center text-[10px] sm:text-[11px] text-slate-300">
+            <div>🌿 Anti-Arrugas</div>
+            <div>👗 Tiro Alto</div>
+            <div>📦 Servientrega</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 4. SECCIÓN FRICCIONES: RESOLVIENDO LOS DOLORES DE ECUADOR      -->
+  <!-- ============================================================== -->
+  <section id="beneficios" class="py-14 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <span class="text-brandCoral font-bold text-xs sm:text-sm tracking-wider uppercase">Dile adiós a la mala experiencia de compra</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brandNavy mt-2 text-balance">
+          ¿Cansada de comprar ropa formal que parece uniforme de hace 20 años?
+        </h2>
+        <p class="text-slate-600 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg">
+          Analizamos las mayores quejas de las mujeres en Ecuador y rediseñamos cada detalle para ofrecerte la experiencia que mereces.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        
+        <!-- Dolor 1: El miedo a la talla y flete doble -->
+        <div class="bg-brandCream rounded-2xl p-5 sm:p-6 border border-brandSoft hover:shadow-lg transition">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-3 sm:mb-4">
+            <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6 text-brandCoral"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-brandNavy mb-1.5 sm:mb-2">Cero Sorpresas de Talla</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Nada de "compra a ciegas". Antes de despachar desde Manta, una asesora valida contigo en WhatsApp tus medidas de busto, cintura y cadera.
+          </p>
+        </div>
+
+        <!-- Dolor 2: Estatura ecuatoriana -->
+        <div class="bg-brandCream rounded-2xl p-5 sm:p-6 border border-brandSoft hover:shadow-lg transition">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-orange-100 text-brandCoral flex items-center justify-center mb-3 sm:mb-4">
+            <i data-lucide="ruler" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-brandNavy mb-1.5 sm:mb-2">Diseñado para la Silueta Real</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Palazzos de tiro alto que alargan visualmente las piernas y no se arrastran como los pantalones importados de corte europeo.
+          </p>
+        </div>
+
+        <!-- Dolor 3: Telas rígidas y calor -->
+        <div class="bg-brandCream rounded-2xl p-5 sm:p-6 border border-brandSoft hover:shadow-lg transition">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-100 text-brandNavy flex items-center justify-center mb-3 sm:mb-4">
+            <i data-lucide="wind" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-brandNavy mb-1.5 sm:mb-2">Textil Smart-Comfort</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Frescas para el calor de la Costa (Guayaquil/Manta) y con la estructura impecable para el clima de la Sierra (Quito/Cuenca) sin arrugarse.
+          </p>
+        </div>
+
+        <!-- Dolor 4: Precios transparentes -->
+        <div class="bg-brandCream rounded-2xl p-5 sm:p-6 border border-brandSoft hover:shadow-lg transition">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3 sm:mb-4">
+            <i data-lucide="tag" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-brandNavy mb-1.5 sm:mb-2">Precios Transparentes</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Aquí no existe el molesto *"precio por DM"*. Ves el precio exacto, los bundles de ahorro y pagas de forma segura con DeUna, transferencia o tarjeta.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 5. CATÁLOGO / COLECCIÓN DESTACADA (RESPONSIVE CARDS)          -->
+  <!-- ============================================================== -->
+  <section id="coleccion" class="py-14 sm:py-20 bg-brandCream border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <span class="text-brandCoral font-bold text-xs sm:text-sm tracking-wider uppercase">Colección Exclusiva 2026</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brandNavy mt-2 text-balance">
+          Prendas Versátiles: De la Oficina a tu Noche
+        </h2>
+        <p class="text-slate-600 mt-2 sm:mt-3 text-sm sm:text-base">
+          Combínalas con tacones para una reunión importante o con tenis blancos para un viernes casual.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Producto 1: Set Ejecutivo Shine (Destacado) -->
+        <div class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-brandCoral shadow-xl relative flex flex-col justify-between">
+          <div class="bg-brandCoral text-white text-[11px] sm:text-xs font-bold py-1.5 px-4 text-center uppercase tracking-widest">
+            ⭐ Más Vendido en Ecuador
+          </div>
+          
+          <div class="p-5 sm:p-6">
+            <div class="h-56 sm:h-64 rounded-xl sm:rounded-2xl bg-brandNavy/10 overflow-hidden relative mb-4 sm:mb-5">
+              <img src="public/assets/logo-full.jpg" alt="Set Ejecutivo Shine" class="w-full h-full object-cover" width="360" height="256" loading="lazy" />
+              <div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold text-brandNavy shadow-sm">
+                Incluye 2 Prendas + Asesoría
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg sm:text-xl font-extrabold text-brandNavy">Set Ejecutivo Shine</h3>
+              <div class="text-right">
+                <span class="text-[11px] sm:text-xs text-slate-400 line-through">$110.00</span>
+                <span class="text-xl sm:text-2xl font-black text-brandCoral block leading-none">$69.99</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+              Blazer entallado + Palazzo sastre de pretina alta. La combinación perfecta para no pensar en qué ponerte en toda la semana.
+            </p>
+
+            <div class="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-600 border-t border-slate-100 pt-3">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Colores: Azul Petróleo, Beige, Negro, Terracota</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Tallas disponibles: S, M, L, XL</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Despacho prioritario Servientrega</div>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0">
+            <a href="#quiz" class="btn-primary-shine w-full py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition shadow-md">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Ordenar con Asesoría de Talla</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Producto 2: Blazer Icono Individual -->
+        <div class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 shadow-md flex flex-col justify-between">
+          <div class="p-5 sm:p-6">
+            <div class="h-56 sm:h-64 rounded-xl sm:rounded-2xl bg-brandNavy/10 overflow-hidden relative mb-4 sm:mb-5">
+              <img src="public/assets/logo-full.jpg" alt="Blazer Icono" class="w-full h-full object-cover" width="360" height="256" loading="lazy" />
+              <div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold text-brandNavy shadow-sm">
+                Prenda Individual
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg sm:text-xl font-extrabold text-brandNavy">Blazer Icono</h3>
+              <div class="text-right">
+                <span class="text-[11px] sm:text-xs text-slate-400 line-through">$60.00</span>
+                <span class="text-xl sm:text-2xl font-black text-brandNavy block leading-none">$42.99</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+              Corte sastre contemporáneo con forro suave interno y bolsillos funcionales. Eleva instantáneamente cualquier jean básico.
+            </p>
+
+            <div class="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-600 border-t border-slate-100 pt-3">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Solapa sastre refinada</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> No se deforma con los lavados</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Tallas S hasta XL</div>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0">
+            <a href="#quiz" class="btn-secondary-navy w-full py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition">
+              <span>Seleccionar Este Modelo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Producto 3: Blusa Satinada Soft-Touch -->
+        <div class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 shadow-md flex flex-col justify-between">
+          <div class="p-5 sm:p-6">
+            <div class="h-56 sm:h-64 rounded-xl sm:rounded-2xl bg-brandNavy/10 overflow-hidden relative mb-4 sm:mb-5">
+              <img src="public/assets/logo-full.jpg" alt="Blusa Satinada" class="w-full h-full object-cover" width="360" height="256" loading="lazy" />
+              <div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold text-brandNavy shadow-sm">
+                Básico Elevado
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg sm:text-xl font-extrabold text-brandNavy">Top Satinado Soft</h3>
+              <div class="text-right">
+                <span class="text-xl sm:text-2xl font-black text-brandNavy block leading-none">$24.99</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+              Tacto sedoso ultra ligero. El complemento ideal para usar debajo del blazer en climas cálidos o días de sol en Manta y Guayaquil.
+            </p>
+
+            <div class="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-600 border-t border-slate-100 pt-3">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Caída fluida anti-transpirante</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Tonos champagne, perla y azul marino</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Combina con todo tu armario</div>
+            </div>
+          </div>
+
+          <div class="p-5 sm:p-6 pt-0">
+            <a href="#quiz" class="btn-secondary-navy w-full py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition">
+              <span>Seleccionar Este Modelo</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 6. FORMULARIO INTERACTIVO LEAD SCORING (MOBILE-FIRST CARDS)   -->
+  <!-- ============================================================== -->
+  <section id="quiz" class="py-14 sm:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-gradient-to-br from-brandNavy via-[#22284C] to-brandNavyDark rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 text-white shadow-2xl relative overflow-hidden border border-white/10">
+        
+        <!-- Elementos decorativos -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brandCoral/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brandCoral/20 text-brandCoral text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Test de Asesoría Gratuita
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-balance">Encuentra tu Outfit y Talla Ideal en 30 Segundos</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+            Responde 4 preguntas breves y una asesora de imagen te enviará fotos reales y tu talla sugerida directamente a tu WhatsApp.
+          </p>
+        </div>
+
+        <!-- Formulario Interactivo -->
+        <form id="leadScoringForm" class="space-y-5 sm:space-y-6">
+          
+          <!-- Pregunta 1: Ocasión y Urgencia -->
+          <fieldset class="space-y-2 border-0 p-0 m-0">
+            <legend class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2">
+              1. ¿Para qué ocasión buscas tu outfit?
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="ocasion" value="urgente_semana" class="w-4 h-4 accent-[#EF8A56] shrink-0" required checked />
+                <span class="text-xs sm:text-sm leading-tight">🔥 Esta misma semana (Entrevista / Evento)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="ocasion" value="este_mes" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">🗓️ Renovar closet este mes</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="ocasion" value="explorando" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">👀 Solo mirando opciones</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Pregunta 2: Prenda deseada -->
+          <fieldset class="space-y-2 border-0 p-0 m-0">
+            <legend class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2">
+              2. ¿Qué prenda o set te interesa más?
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="prenda" value="set_completo" class="w-4 h-4 accent-[#EF8A56] shrink-0" checked />
+                <span class="text-xs sm:text-sm leading-tight font-semibold text-brandCoral">⭐ Set Completo ($69.99)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="prenda" value="solo_blazer" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">🧥 Solo Blazer Icono ($42.99)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="prenda" value="blusas" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">👚 Blusa / Top ($24.99)</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Pregunta 3: Principal duda -->
+          <fieldset class="space-y-2 border-0 p-0 m-0">
+            <legend class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2">
+              3. ¿Cuál es tu mayor duda al comprar ropa online?
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="duda_principal" value="talla" class="w-4 h-4 accent-[#EF8A56] shrink-0" checked />
+                <span class="text-xs sm:text-sm leading-tight">📏 Que la talla me quede exacta</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="duda_principal" value="tela" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">✨ La calidad y textura de la tela</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="duda_principal" value="envio" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">🚚 Tiempos de Servientrega</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Pregunta 4: Método de pago -->
+          <fieldset class="space-y-2 border-0 p-0 m-0">
+            <legend class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2">
+              4. ¿Cómo prefieres realizar tu pago?
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="metodo_pago" value="transferencia" class="w-4 h-4 accent-[#EF8A56] shrink-0" checked />
+                <span class="text-xs sm:text-sm leading-tight">🏦 DeUna / Banco Pichincha</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="metodo_pago" value="tarjeta" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">💳 Tarjeta Crédito / Débito</span>
+              </label>
+              <label class="flex items-center gap-3 p-3.5 sm:p-3 rounded-xl bg-white/5 border border-white/15 hover:border-brandCoral cursor-pointer transition active:scale-[0.99]">
+                <input type="radio" name="metodo_pago" value="contraentrega" class="w-4 h-4 accent-[#EF8A56] shrink-0" />
+                <span class="text-xs sm:text-sm leading-tight">📦 Contraentrega Servientrega</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Datos de Contacto (16px font para prevenir autozoom en iOS) -->
+          <div class="pt-4 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Tu Nombre y Apellido *</label>
+              <input type="text" name="full_name" placeholder="Ej. Camila Saltos" required autocomplete="name"
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-brandCoral text-base sm:text-sm transition" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp de Contacto *</label>
+              <input type="tel" name="phone" placeholder="Ej. 0991234567" required inputmode="tel" autocomplete="tel"
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-brandCoral text-base sm:text-sm transition" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Tu Ciudad en Ecuador *</label>
+              <input type="text" name="company" placeholder="Ej. Quito, Guayaquil, Cuenca..." required autocomplete="address-level2"
+                class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-brandCoral text-base sm:text-sm transition" />
+            </div>
+          </div>
+
+          <!-- Botón de Envío -->
+          <div class="pt-2 text-center">
+            <button type="submit" id="submitLeadBtn" class="btn-primary-shine w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold flex items-center justify-center gap-2 mx-auto active:scale-[0.98] transition shadow-xl">
+              <i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"></i>
+              <span>Enviar Respuestas y Recibir Asesoría en WhatsApp</span>
+            </button>
+            <p class="text-[11px] text-slate-400 mt-2">
+              🔒 Tus datos son 100% privados. Solo los usaremos para brindarte asesoría de talla.
+            </p>
+          </div>
+
+        </form>
+
+        <!-- Mensaje de Éxito / Resultado del Scoring -->
+        <div id="quizResultBox" class="hidden mt-6 sm:mt-8 p-5 sm:p-6 rounded-2xl bg-white/15 border border-brandCoral/50 backdrop-blur-md text-center animate-fade-in">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brandCoral/20 text-brandCoral flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="check-circle-2" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-1" id="resultNameGreeting">¡Listo!</h3>
+          <p class="text-xs sm:text-sm text-slate-200 mb-4" id="resultExplanation">
+            Hemos registrado tus preferencias. Tu score de compatibilidad con nuestro Set Ejecutivo es de <span id="resultScoreBadge" class="font-bold text-brandCoral">95 pts</span>.
+          </p>
+
+          <a id="directWhatsAppLink" href="#" target="_blank" class="btn-primary-shine inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-lg w-full sm:w-auto active:scale-95 transition">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Continuar a WhatsApp con Mi Asesora Ahora</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 7. TESTIMONIOS REALES Y PRUEBA SOCIAL EN ECUADOR              -->
+  <!-- ============================================================== -->
+  <section id="testimonios" class="py-14 sm:py-20 bg-brandCream border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <span class="text-brandCoral font-bold text-xs sm:text-sm tracking-wider uppercase">Experiencias Reales</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brandNavy mt-2 text-balance">
+          Lo que dicen las mujeres que ya visten BLUE SHINESHOP
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <div class="bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+              "Tenía recelo con la talla del palazzo porque tengo caderas anchas y mido 1.58m, pero la chica por WhatsApp me pidió mis medidas y me quedó a la perfección. Me llegó al día siguiente a Guayaquil por Servientrega."
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brandNavy text-white font-bold flex items-center justify-center text-sm shrink-0">CV</div>
+            <div>
+              <h4 class="text-sm font-bold text-brandNavy">Camila V.</h4>
+              <p class="text-xs text-slate-400">Ejecutiva Comercial &bull; Samborondón</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+              "El blazer azul petróleo tiene una caída hermosa. Paso 8 horas en audiencias y reuniones y la tela no se arruga nada. Me encanta que no parece ropa aburrida de banco sino muy moderna."
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brandCoral text-white font-bold flex items-center justify-center text-sm shrink-0">AM</div>
+            <div>
+              <h4 class="text-sm font-bold text-brandNavy">Dra. Andrea M.</h4>
+              <p class="text-xs text-slate-400">Abogada &bull; Quito Norte</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+              "Orgullo manabita. La atención de las chicas de Manta es de 10/10. Compré el set beige y luego pedí el negro. Por fin una tienda en Ecuador que cuida los detalles y da precios claros."
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brandNavy text-white font-bold flex items-center justify-center text-sm shrink-0">VS</div>
+            <div>
+              <h4 class="text-sm font-bold text-brandNavy">Valeria S.</h4>
+              <p class="text-xs text-slate-400">Dueña de Centro Estético &bull; Manta</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 8. PREGUNTAS FRECUENTES (FAQ TOUCH ACCORDION)                  -->
+  <!-- ============================================================== -->
+  <section id="faq" class="py-14 sm:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <span class="text-brandCoral font-bold text-xs sm:text-sm tracking-wider uppercase">Resolvemos tus dudas</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-brandNavy mt-2 text-balance">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-3 sm:space-y-4">
+        
+        <details class="group bg-brandCream rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-200" open>
+          <summary class="font-bold text-brandNavy text-sm sm:text-base cursor-pointer list-none flex items-center justify-between min-h-[44px]">
+            <span>¿Hacen envíos a mi cantón o provincia?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brandCoral group-open:rotate-180 transition-transform shrink-0 ml-2"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 sm:mt-3 leading-relaxed">
+            Sí. Despachamos todos los días desde Manta por Servientrega hacia todo el Ecuador (Quito, Guayaquil, Cuenca, Ambato, Machala, Loja, Santo Domingo, etc.). Tan pronto enviamos tu pedido, recibes tu número de guía oficial para rastrearlo en línea en tiempo real.
+          </p>
+        </details>
+
+        <details class="group bg-brandCream rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-200">
+          <summary class="font-bold text-brandNavy text-sm sm:text-base cursor-pointer list-none flex items-center justify-between min-h-[44px]">
+            <span>¿Qué pasa si la talla no me queda exacta?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brandCoral group-open:rotate-180 transition-transform shrink-0 ml-2"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 sm:mt-3 leading-relaxed">
+            Tienes nuestra <strong>Garantía de Calce 100% Cero Estrés</strong>. Primero, nuestra asesora te pide tus medidas antes de despachar para acertar al 99%. Y si por alguna razón necesitas un cambio, te lo gestionamos de inmediato de forma rápida y transparente.
+          </p>
+        </details>
+
+        <details class="group bg-brandCream rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-200">
+          <summary class="font-bold text-brandNavy text-sm sm:text-base cursor-pointer list-none flex items-center justify-between min-h-[44px]">
+            <span>¿Cuáles son los métodos de pago disponibles?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brandCoral group-open:rotate-180 transition-transform shrink-0 ml-2"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 sm:mt-3 leading-relaxed">
+            Aceptamos transferencias por Banco Pichincha, Banco Guayaquil, Produbanco, DeUna, tarjetas de crédito/débito o pago coordinado para envíos por Servientrega.
+          </p>
+        </details>
+
+        <details class="group bg-brandCream rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-slate-200">
+          <summary class="font-bold text-brandNavy text-sm sm:text-base cursor-pointer list-none flex items-center justify-between min-h-[44px]">
+            <span>¿Puedo combinar tallas diferentes (ej. Blazer S y Pantalón M)?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brandCoral group-open:rotate-180 transition-transform shrink-0 ml-2"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 sm:mt-3 leading-relaxed">
+            ¡Totalmente sí! Sabemos que cada cuerpo es único. Puedes pedir Blazer en talla S y Pantalón en talla M sin ningún recargo adicional.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- 9. FOOTER RESPONSIVE                                           -->
+  <!-- ============================================================== -->
+  <footer class="bg-brandNavyDark text-slate-400 py-10 sm:py-12 px-4 border-t border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full overflow-hidden border border-white/30 shrink-0">
+          <img src="public/assets/logo-full.jpg" alt="Blue Shine Shop" class="w-full h-full object-cover" width="40" height="40" loading="lazy" />
+        </div>
+        <div class="text-left">
+          <span class="font-script-brand text-xl text-white font-bold">Blue.Shine</span>
+          <span class="text-[9px] tracking-widest text-brandCoral block uppercase">Manta &bull; Envíos a todo el Ecuador</span>
+        </div>
+      </div>
+
+      <div class="text-xs space-y-1">
+        <p>&copy; 2026 BLUE SHINESHOP. Todos los derechos reservados.</p>
+        <p>Sastrería femenina moderna Desk-to-Dinner &bull; Despachos vía Servientrega.</p>
+      </div>
+
+      <div>
+        <a href="admin.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 hover:text-white hover:bg-white/10 transition">
+          <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i> Panel Agente de Ventas
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- 10. BARRA FLOTANTE FIJA INFERIOR EN MÓVIL (THUMB-ZONE CTA)     -->
+  <!-- ============================================================== -->
+  <aside aria-label="Acciones Rápidas de Compra" class="fixed bottom-0 inset-x-0 z-30 md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-4 py-2.5 shadow-[0_-4px_25px_rgba(0,0,0,0.12)] flex items-center justify-between safe-bottom-padding">
+    <div class="flex flex-col">
+      <span class="text-[10px] uppercase font-bold text-slate-400 leading-none">Set Ejecutivo Shine</span>
+      <div class="flex items-baseline gap-1 mt-0.5">
+        <span class="text-lg font-black text-brandCoral leading-none">$69.99</span>
+        <span class="text-[10px] text-slate-500 font-medium">Servientrega 24h</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-2">
+      <a href="#quiz" class="btn-primary-shine text-xs font-bold px-4 py-2.5 rounded-xl shadow-md flex items-center gap-1.5 active:scale-95 transition">
+        <span>Test de Talla</span>
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+      </a>
+      <a href="https://wa.me/593990000000?text=Hola%20BLUE%20SHINESHOP!%20Quiero%20asesor%C3%ADa%20de%20talla%20para%20el%20Set%20Ejecutivo%20✨" target="_blank"
+         aria-label="Hablar por WhatsApp"
+         class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-md active:scale-95 transition">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Botón Flotante de WhatsApp para Escritorio y Móvil (reposicionado para no tapar la barra inferior) -->
+  <a href="https://wa.me/593990000000?text=Hola%20BLUE%20SHINESHOP!%20Quiero%20asesor%C3%ADa%20de%20talla%20para%20el%20Set%20Ejecutivo%20✨" target="_blank"
+     aria-label="Abrir chat de WhatsApp"
+     class="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-30 bg-[#25D366] text-white p-3.5 sm:p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300 flex items-center justify-center">
+    <i data-lucide="message-circle" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+  </a>
+
+  <!-- Scripts de la Aplicación -->
+  <script src="js/supabase-config.js"></script>
+  <script src="js/scoring-engine.js"></script>
+  <script>
+    // Inicializar íconos Lucide
+    lucide.createIcons();
+
+    // Lógica del Menú Móvil (Drawer)
+    let mobileMenuOpen = false;
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const iconBars = document.getElementById('menuIconBars');
+    const iconClose = document.getElementById('menuIconClose');
+
+    function toggleMobileMenu() {
+      mobileMenuOpen ? closeMobileMenu() : openMobileMenu();
+    }
+
+    function openMobileMenu() {
+      mobileMenuOpen = true;
+      mobileDrawer.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileDrawer.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+      mobileBtn.setAttribute('aria-expanded', 'true');
+      iconBars.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    }
+
+    function closeMobileMenu() {
+      mobileMenuOpen = false;
+      mobileDrawer.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      mobileDrawer.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+      mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      iconBars.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        closeMobileMenu();
+      }
+    });
+
+    // Manejador del Formulario de Scoring
+    const form = document.getElementById('leadScoringForm');
+    const submitBtn = document.getElementById('submitLeadBtn');
+    const resultBox = document.getElementById('quizResultBox');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Calculando compatibilidad…</span>';
+
+      const formData = new FormData(form);
+      const answers = {
+        ocasion: formData.get('ocasion'),
+        prenda: formData.get('prenda'),
+        duda_principal: formData.get('duda_principal'),
+        metodo_pago: formData.get('metodo_pago')
+      };
+
+      const fullName = formData.get('full_name');
+      const phone = formData.get('phone');
+      const city = formData.get('company');
+
+      // Calcular puntuación y temperatura
+      const result = ScoringEngine.calculate(answers);
+
+      // Crear objeto del prospecto para guardar en base de datos
+      const leadPayload = {
+        full_name: fullName,
+        phone: phone,
+        company: city,
+        qualification_answers: answers,
+        score: result.score,
+        temperature: result.temperature,
+        status: 'NO_CONTACTADO',
+        notes: `Interés en: ${answers.prenda}. Preocupación: ${answers.duda_principal}`
+      };
+
+      try {
+        // Guardar en Supabase / LocalStorage
+        await LeadsDB.insertLead(leadPayload);
+
+        // Actualizar interfaz con el resultado del scoring
+        document.getElementById('resultNameGreeting').textContent = `¡Excelente, ${fullName}!`;
+        document.getElementById('resultScoreBadge').textContent = `${result.score} pts (${result.tempBadge})`;
+        document.getElementById('resultExplanation').innerHTML = `
+          Tu perfil de compatibilidad es <strong>${result.tempBadge}</strong>.<br>
+          Nuestra asesora de imagen te enviará las opciones en tu talla recomendada.
+        `;
+
+        // Configurar enlace de WhatsApp directo
+        const storePhone = '593990000000'; // Número de WhatsApp de la tienda
+        const waUrl = ScoringEngine.generateClientWhatsAppUrl(storePhone, fullName, answers);
+        const waBtn = document.getElementById('directWhatsAppLink');
+        waBtn.href = waUrl;
+
+        // Mostrar caja de resultado
+        resultBox.classList.remove('hidden');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Resetear formulario
+        form.reset();
+      } catch (err) {
+        console.error('Error al procesar el prospecto:', err);
+        alert('Hubo un error al registrar tus datos. Por favor contáctanos por WhatsApp.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5"></i><span>Enviar Respuestas y Recibir Asesoría en WhatsApp</span>';
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
