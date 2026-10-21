@@ -1,49 +1,111 @@
 // js/admin-crm.js
-// Lógica y Controlador del Panel de Ventas / CRM de BLUE SHINESHOP
+// Lógica y Controlador del Panel de Ventas / CRM de BLUE SHINESHOP con Supabase Auth Oficial
 
 const AdminCRM = {
   leads: [],
   currentFilter: 'all',
   searchQuery: '',
+  currentUser: null,
 
-  // Inicializar CRM
+  // Inicializar CRM y autenticación con Supabase
   async init() {
-    this.checkAuth();
-    await this.loadLeads();
-    this.renderStats();
-    this.renderLeads();
-  },
+    await this.checkAuth();
 
-  // Validar si el agente está autenticado
-  checkAuth() {
-    const isAuthed = sessionStorage.getItem('blue_shine_admin_auth') === 'true';
-    const authOverlay = document.getElementById('authOverlay');
-    const crmContent = document.getElementById('crmContent');
-
-    if (!isAuthed) {
-      authOverlay.classList.remove('hidden');
-      crmContent.classList.add('hidden');
-    } else {
-      authOverlay.classList.add('hidden');
-      crmContent.classList.remove('hidden');
+    // Escuchar eventos de autenticación en tiempo real (login, logout, token refresh)
+    if (supabaseClient) {
+      supabaseClient.auth.onAuthStateChange(async (event, session) => {
+        console.log('[Auth Event]', event);
+        if (session && session.user) {
+          this.currentUser = session.user;
+          this.showCRM();
+          await this.loadLeads();
+        } else if (event === 'SIGNED_OUT') {
+          this.currentUser = null;
+          this.leads = [];
+          this.showLogin();
+        }
+      });
     }
   },
 
-  // Iniciar sesión
-  login(pin) {
-    if (pin === CONFIG.ADMIN_PIN) {
-      sessionStorage.setItem('blue_shine_admin_auth', 'true');
-      this.checkAuth();
-      this.loadLeads();
-      return true;
+  // Validar si existe una sesión activa y válida con JWT
+  async checkAuth() {
+    try {
+      const session = await AuthService.getSession();
+      if (session && session.user) {
+        this.currentUser = session.user;
+        this.showCRM();
+        await this.loadLeads();
+        return true;
+      }
+    } catch (err) {
+      console.warn('[AdminCRM] No hay sesión activa:', err.message);
     }
+
+    this.currentUser = null;
+    this.showLogin();
     return false;
   },
 
-  // Cerrar sesión
-  logout() {
-    sessionStorage.removeItem('blue_shine_admin_auth');
-    this.checkAuth();
+  // Mostrar el panel CRM para usuarios autenticados
+  showCRM() {
+    const authOverlay = document.getElementById('authOverlay');
+    const crmContent = document.getElementById('crmContent');
+    const emailDisplay = document.getElementById('adminUserEmailDisplay');
+
+    if (authOverlay) authOverlay.classList.add('hidden');
+    if (crmContent) crmContent.classList.remove('hidden');
+
+    if (emailDisplay && this.currentUser) {
+      emailDisplay.textContent = this.currentUser.email;
+    }
+    if (window.lucide) lucide.createIcons();
+  },
+
+  // Mostrar modal de login si no hay sesión
+  showLogin() {
+    const authOverlay = document.getElementById('authOverlay');
+    const crmContent = document.getElementById('crmContent');
+
+    if (authOverlay) authOverlay.classList.remove('hidden');
+    if (crmContent) crmContent.classList.add('hidden');
+    if (window.lucide) lucide.createIcons();
+  },
+
+  // Iniciar sesión con Supabase Auth (Email y Contraseña)
+  async loginWithSupabase(email, password) {
+    const res = await AuthService.signIn(email, password);
+    if (!res.success) {
+      return { success: false, error: res.error };
+    }
+    this.currentUser = res.user;
+    this.showCRM();
+    await this.loadLeads();
+    return { success: true, user: res.user };
+  },
+
+  // Registrar nuevo agente en Supabase Auth
+  async registerWithSupabase(email, password, fullName) {
+    const res = await AuthService.signUp(email, password, fullName);
+    if (!res.success) {
+      return { success: false, error: res.error };
+    }
+    // Si autoconfirm inició la sesión inmediatamente
+    if (res.session && res.user) {
+      this.currentUser = res.user;
+      this.showCRM();
+      await this.loadLeads();
+      return { success: true, autoLogged: true, user: res.user };
+    }
+    return { success: true, autoLogged: false, user: res.user };
+  },
+
+  // Cerrar sesión segura con Supabase Auth
+  async logout() {
+    await AuthService.signOut();
+    this.currentUser = null;
+    this.leads = [];
+    this.showLogin();
   },
 
   // Cargar prospectos ordenados por prioridad (HOT arriba)

@@ -192,5 +192,104 @@ const LeadsDB = {
   }
 };
 
+// ==============================================================
+// SERVICIO DE AUTENTICACIÓN OFICIAL (SUPABASE AUTH & JWT)
+// ==============================================================
+const AuthService = {
+  // Obtener sesión activa
+  async getSession() {
+    if (!supabaseClient) return null;
+    try {
+      const { data, error } = await supabaseClient.auth.getSession();
+      if (error) throw error;
+      return data.session;
+    } catch (err) {
+      console.warn('[AuthService] Error al obtener sesión:', err.message);
+      return null;
+    }
+  },
+
+  // Obtener usuario actualmente autenticado
+  async getUser() {
+    if (!supabaseClient) return null;
+    try {
+      const { data, error } = await supabaseClient.auth.getUser();
+      if (error) throw error;
+      return data.user;
+    } catch (err) {
+      return null;
+    }
+  },
+
+  // Iniciar sesión con Email y Contraseña (Supabase Auth)
+  async signIn(email, password) {
+    if (!supabaseClient) {
+      return { success: false, error: 'Supabase Cloud no está inicializado.' };
+    }
+    try {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email.trim().toLowerCase(),
+        password: password
+      });
+
+      if (error) throw error;
+      console.log('[AuthService] Inicio de sesión exitoso:', data.user.email);
+      return { success: true, user: data.user, session: data.session };
+    } catch (err) {
+      console.error('[AuthService] Error de autenticación:', err.message);
+      let friendlyError = err.message;
+      if (err.message.includes('Invalid login credentials')) {
+        friendlyError = 'Credenciales incorrectas. Verifica tu correo y contraseña.';
+      } else if (err.message.includes('Email not confirmed')) {
+        friendlyError = 'El correo electrónico no ha sido confirmado aún.';
+      }
+      return { success: false, error: friendlyError };
+    }
+  },
+
+  // Registro de nuevo administrador o agente de ventas
+  async signUp(email, password, fullName = '') {
+    if (!supabaseClient) {
+      return { success: false, error: 'Supabase Cloud no está inicializado.' };
+    }
+    try {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email: email.trim().toLowerCase(),
+        password: password,
+        options: {
+          data: {
+            full_name: fullName.trim(),
+            role: 'agent'
+          }
+        }
+      });
+
+      if (error) throw error;
+      console.log('[AuthService] Cuenta creada exitosamente:', data.user?.email);
+      return { success: true, user: data.user, session: data.session };
+    } catch (err) {
+      console.error('[AuthService] Error al registrar usuario:', err.message);
+      let friendlyError = err.message;
+      if (err.message.includes('User already registered')) {
+        friendlyError = 'Ya existe un usuario registrado con este correo electrónico.';
+      } else if (err.message.includes('Password should be at least')) {
+        friendlyError = 'La contraseña debe tener al menos 6 caracteres.';
+      }
+      return { success: false, error: friendlyError };
+    }
+  },
+
+  // Cerrar sesión
+  async signOut() {
+    if (supabaseClient) {
+      try {
+        await supabaseClient.auth.signOut();
+      } catch (err) {
+        console.warn('[AuthService] Error al cerrar sesión:', err);
+      }
+    }
+  }
+};
+
 // Cargar demos si está vacío para pruebas del usuario
 LeadsDB.seedDemoLeadsIfEmpty();

@@ -39,49 +39,116 @@
 <body class="bg-slate-100 text-slate-800 min-h-screen">
 
   <!-- ============================================================== -->
-  <!-- MODAL DE AUTENTICACIÓN (LOGIN PROTEGIDO CON PIN / CONTRASEÑA) -->
+  <!-- MODAL DE AUTENTICACIÓN OFICIAL SUPABASE AUTH (EMAIL + PASSWORD)-->
   <!-- ============================================================== -->
-  <div id="authOverlay" class="fixed inset-0 z-50 bg-brandNavyDark/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-slate-200 text-center animate-fade-in">
+  <div id="authOverlay" class="fixed inset-0 z-50 bg-brandNavyDark/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-200 text-center animate-fade-in">
       
       <!-- Logo Oficial BLUE SHINESHOP -->
-      <div class="relative w-20 h-20 mx-auto mb-4">
-        <img src="LOGO.jpg" alt="BLUE SHINESHOP" class="w-20 h-20 rounded-full object-cover border-2 border-brandCoral shadow-lg" />
+      <div class="relative w-20 h-20 mx-auto mb-3">
+        <img src="public/assets/logo-full.jpg" alt="BLUE SHINESHOP" class="w-20 h-20 rounded-full object-cover border-2 border-brandCoral shadow-lg" />
         <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-brandNavy text-white flex items-center justify-center shadow">
-          <i data-lucide="lock" class="w-3.5 h-3.5 text-brandCoral"></i>
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
         </span>
       </div>
 
-      <h2 class="text-2xl font-black text-brandNavy">Acceso Agente de Ventas</h2>
-      <p class="text-xs text-slate-500 mt-1 mb-6">
-        Panel de gestión de prospectos calificados de BLUE SHINESHOP.
+      <h2 class="text-2xl font-black text-brandNavy">Panel Agente de Ventas</h2>
+      <p class="text-xs text-slate-500 mt-0.5 mb-5">
+        Autenticación protegida con <span class="font-bold text-brandCoral">Supabase Auth</span> y tokens JWT.
       </p>
 
-      <form id="authForm" class="space-y-4">
+      <!-- Selector de Pestañas: Iniciar Sesión / Registrar Agente -->
+      <div class="flex items-center bg-slate-100 p-1 rounded-2xl mb-4 border border-slate-200">
+        <button type="button" id="tabBtnLogin" onclick="setAuthTab('login')"
+          class="flex-1 py-2 text-xs font-bold rounded-xl transition bg-brandNavy text-white shadow-sm">
+          Iniciar Sesión
+        </button>
+        <button type="button" id="tabBtnRegister" onclick="setAuthTab('register')"
+          class="flex-1 py-2 text-xs font-bold rounded-xl transition text-slate-500 hover:text-slate-800">
+          Registrar Agente
+        </button>
+      </div>
+
+      <!-- Alerta de Error / Éxito -->
+      <div id="authAlert" class="hidden mb-4 p-3 rounded-xl text-xs font-medium border text-left animate-fade-in"></div>
+
+      <!-- FORMULARIO 1: INICIAR SESIÓN -->
+      <form id="loginForm" class="space-y-3.5 text-left">
         <div>
-          <label class="block text-left text-xs font-bold text-slate-700 mb-1">Contraseña de Acceso:</label>
-          <input type="password" id="authPinInput" placeholder="Ingresa la contraseña..." required autofocus
-            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-center text-lg tracking-widest font-mono focus:outline-none focus:border-brandNavy" />
-          <p class="text-[11px] text-slate-400 mt-1">Clave inicial por defecto: <code class="font-bold text-brandCoral">blueshine2026</code></p>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico:</label>
+          <div class="relative">
+            <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="email" id="loginEmail" placeholder="admin@blueshineshop.com" value="admin@blueshineshop.com" required
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brandNavy" />
+          </div>
         </div>
 
-        <button type="submit" class="btn-primary-shine w-full py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-          <span>Ingresar al CRM</span>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Contraseña:</label>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="password" id="loginPassword" placeholder="••••••••••••" required
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brandNavy font-mono" />
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">Clave inicial maestra: <code class="font-bold text-brandCoral">BlueShineAdmin2026!</code></p>
+        </div>
+
+        <button type="submit" id="loginSubmitBtn" class="btn-primary-shine w-full py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition">
+          <span>Iniciar Sesión en Supabase</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
       </form>
 
-      <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-400">
-        <a href="index.html" class="hover:text-brandNavy transition flex items-center justify-center gap-1">
-          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver a la Landing Page
+      <!-- FORMULARIO 2: REGISTRAR NUEVO AGENTE -->
+      <form id="registerForm" class="hidden space-y-3.5 text-left">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Nombre Completo:</label>
+          <div class="relative">
+            <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="text" id="regFullName" placeholder="Ej. Camila Saltos" required
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brandNavy" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico:</label>
+          <div class="relative">
+            <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="email" id="regEmail" placeholder="agente@blueshineshop.com" required
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brandNavy" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Contraseña (Mínimo 6 caracteres):</label>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="password" id="regPassword" placeholder="••••••••••••" required minlength="6"
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brandNavy font-mono" />
+          </div>
+        </div>
+
+        <button type="submit" id="regSubmitBtn" class="btn-secondary-navy w-full py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition">
+          <span>Crear Cuenta de Agente</span>
+          <i data-lucide="user-plus" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <!-- Pie de Seguridad -->
+      <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+        <a href="index.html" class="hover:text-brandNavy transition flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Ir a la Tienda
         </a>
+        <span class="flex items-center gap-1 text-emerald-600 font-semibold">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i> RLS Protegido
+        </span>
       </div>
 
     </div>
   </div>
 
   <!-- ============================================================== -->
-  <!-- CONTENIDO PRINCIPAL DEL CRM (VISIBLE TRAS LOGIN)               -->
+  <!-- CONTENIDO PRINCIPAL DEL CRM (VISIBLE TRAS LOGIN CON SUPABASE)  -->
   <!-- ============================================================== -->
   <div id="crmContent" class="hidden min-h-screen flex flex-col">
     
@@ -100,6 +167,13 @@
         </div>
 
         <div class="flex items-center gap-3">
+          <!-- Usuario Autenticado en Supabase -->
+          <div class="hidden sm:flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-xl border border-white/15">
+            <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+            <span id="adminUserEmailDisplay" class="text-xs font-mono text-slate-200">admin@blueshineshop.com</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-1.5 py-0.5 rounded border border-emerald-500/30">JWT</span>
+          </div>
+
           <a href="index.html" target="_blank" class="text-xs px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 transition flex items-center gap-1.5">
             <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Ver Landing
           </a>
@@ -206,15 +280,83 @@
   <script>
     lucide.createIcons();
 
-    // Manejar Login
-    document.getElementById('authForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const pin = document.getElementById('authPinInput').value.trim();
-      const success = AdminCRM.login(pin);
-      if (!success) {
-        alert('Contraseña incorrecta. Por favor intenta de nuevo.');
+    // Alternar pestañas de Login y Registro
+    function setAuthTab(tab) {
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const tabLogin = document.getElementById('tabBtnLogin');
+      const tabReg = document.getElementById('tabBtnRegister');
+      const alertEl = document.getElementById('authAlert');
+      alertEl.classList.add('hidden');
+
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        tabLogin.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition bg-brandNavy text-white shadow-sm';
+        tabReg.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition text-slate-500 hover:text-slate-800';
       } else {
-        lucide.createIcons();
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+        tabReg.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition bg-brandNavy text-white shadow-sm';
+        tabLogin.className = 'flex-1 py-2 text-xs font-bold rounded-xl transition text-slate-500 hover:text-slate-800';
+      }
+      lucide.createIcons();
+    }
+
+    // Mostrar alerta en el modal de autenticación
+    function showAuthAlert(message, isError = true) {
+      const alertEl = document.getElementById('authAlert');
+      alertEl.className = `mb-4 p-3 rounded-xl text-xs font-medium border flex items-center gap-2 text-left animate-fade-in ${
+        isError ? 'bg-red-50 text-red-700 border-red-200' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+      }`;
+      alertEl.innerHTML = `<i data-lucide="${isError ? 'alert-triangle' : 'check-circle'}" class="w-4 h-4 shrink-0"></i><span>${message}</span>`;
+      alertEl.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    // Procesar Inicio de Sesión
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('loginSubmitBtn');
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>Verificando con Supabase...</span>';
+
+      const res = await AdminCRM.loginWithSupabase(email, password);
+      btn.disabled = false;
+      btn.innerHTML = '<span>Iniciar Sesión en Supabase</span><i data-lucide="arrow-right" class="w-4 h-4"></i>';
+      lucide.createIcons();
+
+      if (!res.success) {
+        showAuthAlert(res.error, true);
+      }
+    });
+
+    // Procesar Registro de Nuevo Agente
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('regSubmitBtn');
+      const name = document.getElementById('regFullName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span>Creando cuenta en Supabase...</span>';
+
+      const res = await AdminCRM.registerWithSupabase(email, password, name);
+      btn.disabled = false;
+      btn.innerHTML = '<span>Crear Cuenta de Agente</span><i data-lucide="user-plus" class="w-4 h-4"></i>';
+      lucide.createIcons();
+
+      if (!res.success) {
+        showAuthAlert(res.error, true);
+      } else {
+        if (!res.autoLogged) {
+          showAuthAlert('¡Cuenta creada! Ya puedes iniciar sesión con tus credenciales.', false);
+          setTimeout(() => setAuthTab('login'), 2000);
+        }
       }
     });
 
@@ -241,7 +383,7 @@
       AdminCRM.renderLeads();
     });
 
-    // Iniciar CRM
+    // Iniciar CRM y validar sesión activa de Supabase
     AdminCRM.init();
   </script>
 </body>

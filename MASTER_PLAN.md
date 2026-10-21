@@ -74,7 +74,24 @@ Este documento es la hoja de ruta maestra del proyecto dividida en **5 Fases**, 
 - [x] **Verificación y Lanzamiento en Vivo:**
    - Despliegue a producción completado y verificado (HTTP 200).
    - **URL de Producción Oficial:** [https://blue-shineshop-landing.vercel.app](https://blue-shineshop-landing.vercel.app)
-   - **Panel CRM de Ventas en Vivo:** [https://blue-shineshop-landing.vercel.app/admin](https://blue-shineshop-landing.vercel.app/admin) *(PIN: `blueshine2026`)*
+   - **Panel CRM de Ventas en Vivo:** [https://blue-shineshop-landing.vercel.app/admin](https://blue-shineshop-landing.vercel.app/admin)
+
+---
+
+### FASE 7: Seguridad Avanzada, Autenticación Supabase Auth y Blindaje RLS (COMPLETADA)
+- [x] **Blindaje de Políticas RLS en PostgreSQL:**
+  - `INSERT`: Público (`anon`) exclusivo para registro de prospectos desde el quiz.
+  - `SELECT`, `UPDATE` y `DELETE`: Estrictamente restringidos a usuarios con sesión activa (`auth.role() = 'authenticated'`).
+  - Lectura anónima bloqueada (devuelve lista vacía `[]` a cualquier petición no autenticada).
+- [x] **Migración a Supabase Auth Oficial:**
+  - Eliminación de PIN inseguro en frontend.
+  - Implementación de login y registro de agentes con Email + Password y tokens JWT.
+  - Habilitación de `mailer_autoconfirm` para registro ágil de agentes sin cuellos de botella por verificación de correo.
+  - Creación del usuario maestro inicial verificado: `admin@blueshineshop.com`.
+- [x] **UI/UX del Panel de Acceso Administrador:**
+  - Pestañas dinámicas para "Iniciar Sesión" y "Registrar Agente".
+  - Alertas de error/éxito con Lucide Icons.
+  - Barra superior del CRM con identificación de sesión del agente (`adminUserEmailDisplay`) y botón de Logout con invalidación de sesión JWT.
 
 ---
 

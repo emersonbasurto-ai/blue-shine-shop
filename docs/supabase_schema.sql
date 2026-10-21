@@ -52,22 +52,33 @@ CREATE TRIGGER trg_lead_update
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 
 -- Política A: Inserción pública (Anon) - El formulario del Landing Page puede registrar prospectos
+DROP POLICY IF EXISTS "Permitir insercion publica desde el landing" ON public.leads;
 CREATE POLICY "Permitir insercion publica desde el landing" 
 ON public.leads 
 FOR INSERT 
 TO anon, authenticated 
 WITH CHECK (true);
 
--- Política B: Lectura de prospectos (Permite sincronizar con el panel CRM)
-CREATE POLICY "Permitir lectura para el CRM" 
+-- Política B: Lectura de prospectos (Exclusiva para administradores y agentes autenticados con Supabase Auth)
+DROP POLICY IF EXISTS "Permitir lectura para el CRM" ON public.leads;
+CREATE POLICY "Lectura exclusiva agentes autenticados" 
 ON public.leads 
 FOR SELECT 
-TO anon, authenticated 
-USING (true);
+TO authenticated 
+USING (auth.role() = 'authenticated');
 
--- Política C: Actualización de notas y estado (Contactado / No contactado)
-CREATE POLICY "Permitir actualizacion desde el CRM" 
+-- Política C: Actualización de notas y estado (Exclusiva para administradores y agentes autenticados)
+DROP POLICY IF EXISTS "Permitir actualizacion desde el CRM" ON public.leads;
+CREATE POLICY "Actualizacion exclusiva agentes autenticados" 
 ON public.leads 
 FOR UPDATE 
-TO anon, authenticated 
-USING (true);
+TO authenticated 
+USING (auth.role() = 'authenticated')
+WITH CHECK (auth.role() = 'authenticated');
+
+-- Política D: Eliminación de prospectos (Exclusiva para administradores autenticados)
+CREATE POLICY "Eliminacion exclusiva agentes autenticados" 
+ON public.leads 
+FOR DELETE 
+TO authenticated 
+USING (auth.role() = 'authenticated');
