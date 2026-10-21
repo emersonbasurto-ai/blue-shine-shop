@@ -143,17 +143,140 @@ const AdminCRM = {
     await LeadsDB.updateLead(leadId, { notes });
   },
 
-  // Renderizar tarjetas de métricas
+  // Precios oficiales de prendas de BLUE SHINESHOP para cálculo del Pipeline
+  PRICES: {
+    set_completo: 69.99,
+    solo_blazer: 42.99,
+    blusas: 24.99,
+    default: 50.00
+  },
+
+  // Obtener valor económico en juego por prospecto
+  getLeadValue(lead) {
+    const raw = lead.qualification_answers?.prenda;
+    if (!raw) return this.PRICES.default;
+    
+    if (this.PRICES[raw]) return this.PRICES[raw];
+
+    const str = String(raw).toLowerCase();
+    if (str.includes('set') || str.includes('69.99')) return this.PRICES.set_completo;
+    if (str.includes('blazer') || str.includes('42.99')) return this.PRICES.solo_blazer;
+    if (str.includes('blusa') || str.includes('top') || str.includes('24.99')) return this.PRICES.blusas;
+
+    return this.PRICES.default;
+  },
+
+  // Formato de moneda USD
+  formatUSD(amount) {
+    return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USD';
+  },
+
+  // Renderizar tarjetas de métricas y Pipeline de Ingresos
   renderStats() {
     const total = this.leads.length;
-    const hot = this.leads.filter(l => l.temperature === 'HOT').length;
+    const hotLeads = this.leads.filter(l => l.temperature === 'HOT');
+    const warmLeads = this.leads.filter(l => l.temperature === 'WARM');
+    const coldLeads = this.leads.filter(l => l.temperature === 'COLD');
     const pending = this.leads.filter(l => l.status === 'NO_CONTACTADO').length;
     const contacted = this.leads.filter(l => l.status === 'CONTACTADO').length;
 
-    document.getElementById('statTotal').textContent = total;
-    document.getElementById('statHot').textContent = hot;
-    document.getElementById('statPending').textContent = pending;
-    document.getElementById('statContacted').textContent = contacted;
+    // Métricas de Pipeline Económico ($ en juego)
+    let pipeTotal = 0;
+    let pipeHot = 0;
+    let pipeWarm = 0;
+    let pipeCold = 0;
+
+    // Desglose por Producto
+    let valSet = 0;
+    let countSet = 0;
+    let valBlazer = 0;
+    let countBlazer = 0;
+    let valBlusas = 0;
+    let countBlusas = 0;
+
+    this.leads.forEach(lead => {
+      const val = this.getLeadValue(lead);
+      pipeTotal += val;
+
+      if (lead.temperature === 'HOT') pipeHot += val;
+      else if (lead.temperature === 'WARM') pipeWarm += val;
+      else pipeCold += val;
+
+      const pKey = lead.qualification_answers?.prenda || '';
+      const pStr = String(pKey).toLowerCase();
+      if (pStr.includes('set') || pStr.includes('69.99')) {
+        valSet += val;
+        countSet++;
+      } else if (pStr.includes('blazer') || pStr.includes('42.99')) {
+        valBlazer += val;
+        countBlazer++;
+      } else {
+        valBlusas += val;
+        countBlusas++;
+      }
+    });
+
+    // Pronóstico Ponderado de Cierre: 80% HOT + 40% WARM + 15% COLD
+    const expectedHot = pipeHot * 0.80;
+    const expectedWarm = pipeWarm * 0.40;
+    const expectedCold = pipeCold * 0.15;
+    const pipeForecast = expectedHot + expectedWarm + expectedCold;
+
+    // Porcentajes para barra visual
+    const pctHot = pipeTotal > 0 ? ((pipeHot / pipeTotal) * 100).toFixed(0) : 0;
+    const pctWarm = pipeTotal > 0 ? ((pipeWarm / pipeTotal) * 100).toFixed(0) : 0;
+    const pctCold = pipeTotal > 0 ? ((pipeCold / pipeTotal) * 100).toFixed(0) : 0;
+
+    // Actualizar elementos DOM tradicionales
+    const elTotal = document.getElementById('statTotal');
+    const elHot = document.getElementById('statHot');
+    const elPending = document.getElementById('statPending');
+    const elContacted = document.getElementById('statContacted');
+
+    if (elTotal) elTotal.textContent = total;
+    if (elHot) elHot.textContent = hotLeads.length;
+    if (elPending) elPending.textContent = pending;
+    if (elContacted) elContacted.textContent = contacted;
+
+    // Actualizar elementos DOM del Pipeline Financiero
+    const elPipeTotal = document.getElementById('pipeTotalVal');
+    const elPipeHot = document.getElementById('pipeHotVal');
+    const elPipeHotExpected = document.getElementById('pipeHotExpected');
+    const elPipeWarm = document.getElementById('pipeWarmVal');
+    const elPipeWarmExpected = document.getElementById('pipeWarmExpected');
+    const elPipeCold = document.getElementById('pipeColdVal');
+    const elPipeForecast = document.getElementById('pipeForecastVal');
+
+    if (elPipeTotal) elPipeTotal.textContent = this.formatUSD(pipeTotal);
+    if (elPipeHot) elPipeHot.textContent = this.formatUSD(pipeHot);
+    if (elPipeHotExpected) elPipeHotExpected.textContent = `~$${expectedHot.toFixed(2)} USD proyectado (~80%)`;
+    if (elPipeWarm) elPipeWarm.textContent = this.formatUSD(pipeWarm);
+    if (elPipeWarmExpected) elPipeWarmExpected.textContent = `~$${expectedWarm.toFixed(2)} USD proyectado (~40%)`;
+    if (elPipeCold) elPipeCold.textContent = this.formatUSD(pipeCold);
+    if (elPipeForecast) elPipeForecast.textContent = this.formatUSD(pipeForecast);
+
+    // Actualizar Barra Visual de Segmentos
+    const barHot = document.getElementById('barSegmentHot');
+    const barWarm = document.getElementById('barSegmentWarm');
+    const barCold = document.getElementById('barSegmentCold');
+    if (barHot) barHot.style.width = `${pctHot}%`;
+    if (barWarm) barWarm.style.width = `${pctWarm}%`;
+    if (barCold) barCold.style.width = `${pctCold}%`;
+
+    const lblHot = document.getElementById('barLabelHot');
+    const lblWarm = document.getElementById('barLabelWarm');
+    const lblCold = document.getElementById('barLabelCold');
+    if (lblHot) lblHot.textContent = `${pctHot}% ($${pipeHot.toFixed(2)})`;
+    if (lblWarm) lblWarm.textContent = `${pctWarm}% ($${pipeWarm.toFixed(2)})`;
+    if (lblCold) lblCold.textContent = `${pctCold}% ($${pipeCold.toFixed(2)})`;
+
+    // Actualizar desglose por producto
+    const elProdSet = document.getElementById('valProdSet');
+    const elProdBlazer = document.getElementById('valProdBlazer');
+    const elProdBlusa = document.getElementById('valProdBlusa');
+    if (elProdSet) elProdSet.textContent = `$${valSet.toFixed(2)} (${countSet} interesadas)`;
+    if (elProdBlazer) elProdBlazer.textContent = `$${valBlazer.toFixed(2)} (${countBlazer} interesadas)`;
+    if (elProdBlusa) elProdBlusa.textContent = `$${valBlusas.toFixed(2)} (${countBlusas} interesadas)`;
   },
 
   // Renderizar la lista de prospectos filtrada
@@ -165,6 +288,8 @@ const AdminCRM = {
     let filtered = this.leads.filter(lead => {
       // Filtro de estado / temperatura
       if (this.currentFilter === 'hot' && lead.temperature !== 'HOT') return false;
+      if (this.currentFilter === 'warm' && lead.temperature !== 'WARM') return false;
+      if (this.currentFilter === 'cold' && lead.temperature !== 'COLD') return false;
       if (this.currentFilter === 'pending' && lead.status !== 'NO_CONTACTADO') return false;
       if (this.currentFilter === 'contacted' && lead.status !== 'CONTACTADO') return false;
 
@@ -193,6 +318,7 @@ const AdminCRM = {
       const isContacted = lead.status === 'CONTACTADO';
       const isHot = lead.temperature === 'HOT';
       const isWarm = lead.temperature === 'WARM';
+      const leadValue = this.getLeadValue(lead);
 
       const tempBadgeClass = isHot ? 'badge-hot' : isWarm ? 'badge-warm' : 'badge-cold';
       const tempLabel = isHot ? '🔥 CALIENTE' : isWarm ? '⚡ TIBIO' : '❄️ FRÍO';
@@ -223,6 +349,9 @@ const AdminCRM = {
               <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${tempBadgeClass}">
                 ${tempLabel} (${lead.score || 0} pts)
               </span>
+              <span class="text-xs font-black text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                <i data-lucide="dollar-sign" class="w-3.5 h-3.5 text-emerald-600"></i> $${leadValue.toFixed(2)} USD en juego
+              </span>
               <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full ${isContacted ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">
                 ${isContacted ? '✓ Contactado' : '⏳ Pendiente'}
               </span>
@@ -238,6 +367,9 @@ const AdminCRM = {
             <div class="text-xs text-slate-600 flex flex-wrap gap-x-4 gap-y-1 pt-1">
               <div><strong>WhatsApp:</strong> <span class="font-mono text-slate-800">${lead.phone}</span></div>
               <div><strong>Prenda:</strong> <span class="text-brandCoral font-bold">${lead.qualification_answers?.prenda || 'Set Ejecutivo'}</span></div>
+              <div><strong>Ocasión:</strong> ${lead.qualification_answers?.ocasion || 'General'}</div>
+              <div><strong>Duda:</strong> ${lead.qualification_answers?.duda_principal || 'Talla'}</div>
+            </div>
               <div><strong>Ocasión:</strong> ${lead.qualification_answers?.ocasion || 'General'}</div>
               <div><strong>Duda:</strong> ${lead.qualification_answers?.duda_principal || 'Talla'}</div>
             </div>

@@ -188,57 +188,214 @@
     <!-- Cuerpo del Panel -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-6">
       
-      <!-- 1. Tarjetas de Métricas en Tiempo Real -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <!-- ============================================================== -->
+      <!-- 1. DASHBOARD DE PIPELINE DE VENTAS & DINERO EN JUEGO           -->
+      <!-- ============================================================== -->
+      <div class="space-y-4">
         
-        <!-- Total Leads -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Total Prospectos</span>
-          <div class="text-3xl font-black text-brandNavy mt-1" id="statTotal">0</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">Captados desde la landing</span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-black text-brandNavy flex items-center gap-2">
+              <i data-lucide="trending-up" class="w-6 h-6 text-brandCoral"></i>
+              <span>Pipeline Financiero & Dinero en Juego</span>
+            </h2>
+            <p class="text-xs text-slate-500">
+              Valor económico proyectado según las respuestas de las clientas en el test de tallas.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 flex items-center gap-1.5 shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Cálculo en Tiempo Real</span>
+            </span>
+          </div>
         </div>
 
-        <!-- 🔥 Leads Calientes -->
-        <div class="bg-gradient-to-br from-red-50 to-orange-50 p-5 rounded-2xl border border-red-200 shadow-sm">
-          <span class="text-xs font-bold text-red-600 uppercase tracking-wider block flex items-center gap-1">
-            <i data-lucide="flame" class="w-3.5 h-3.5 fill-red-500 text-red-500"></i> Calientes (🔥 Hot)
-          </span>
-          <div class="text-3xl font-black text-red-600 mt-1" id="statHot">0</div>
-          <span class="text-[11px] text-red-700/80 mt-1 block font-semibold">¡Llamar de inmediato!</span>
+        <!-- Fila de Tarjetas Financieras del Pipeline -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Tarjeta 1: Total Dinero en Juego -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group hover:border-brandNavy/30 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Dinero Total en Juego</span>
+              <span class="w-8 h-8 rounded-xl bg-slate-100 text-brandNavy flex items-center justify-center font-bold">
+                <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-brandNavy mt-2" id="pipeTotalVal">$0.00 USD</div>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <span>Prospectos activos:</span>
+              <span class="font-bold text-slate-700" id="statTotal">0</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Pipeline 🔥 HOT (Prioridad de Cierre) -->
+          <div class="bg-gradient-to-br from-red-50 to-orange-50 p-5 rounded-2xl border border-red-200 shadow-sm relative overflow-hidden group hover:border-red-300 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="flame" class="w-4 h-4 fill-red-500 text-red-500"></i> Pipeline 🔥 HOT
+              </span>
+              <span class="w-8 h-8 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                <span id="statHot" class="text-xs">0</span>
+              </span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-red-600 mt-2" id="pipeHotVal">$0.00 USD</div>
+            <div class="mt-2 pt-2 border-t border-red-200/60 flex items-center justify-between text-[11px]">
+              <span class="text-red-700 font-semibold" id="pipeHotExpected">~$0.00 USD esperado (80%)</span>
+              <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded">¡Cerrar ya!</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: Pipeline ⚡ WARM (Interés Medio) -->
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50/50 p-5 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden group hover:border-amber-300 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-700 uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="zap" class="w-4 h-4 fill-amber-500 text-amber-500"></i> Pipeline ⚡ WARM
+              </span>
+              <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-600 mt-2" id="pipeWarmVal">$0.00 USD</div>
+            <div class="mt-2 pt-2 border-t border-amber-200/60 flex items-center justify-between text-[11px]">
+              <span class="text-amber-700 font-semibold" id="pipeWarmExpected">~$0.00 USD esperado (40%)</span>
+              <span class="text-slate-500">Nutrición de talla</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta 4: Pronóstico Ponderado Total (Forecast) -->
+          <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-5 rounded-2xl border border-emerald-200 shadow-sm relative overflow-hidden group hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="badge-check" class="w-4 h-4 text-emerald-600"></i> Forecast Ponderado
+              </span>
+              <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                <i data-lucide="target" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black text-emerald-700 mt-2" id="pipeForecastVal">$0.00 USD</div>
+            <div class="mt-2 pt-2 border-t border-emerald-200/60 flex items-center justify-between text-[11px] text-emerald-800">
+              <span>Ingreso neto estimado:</span>
+              <span class="font-bold">80% HOT + 40% WARM</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- ⏳ Pendientes -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-          <span class="text-xs font-bold text-amber-500 uppercase tracking-wider block">Por Contactar</span>
-          <div class="text-3xl font-black text-amber-600 mt-1" id="statPending">0</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">En espera de respuesta</span>
-        </div>
+        <!-- Módulo de Inteligencia: Termómetro de Cierre y Desglose por Prenda -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          
+          <!-- Termómetro del Dinero en Juego (Col 7) -->
+          <div class="lg:col-span-7 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                  <i data-lucide="activity" class="w-4 h-4 text-brandNavy"></i>
+                  <span>Termómetro de Probabilidad de Cierre</span>
+                </h3>
+                <span class="text-[11px] text-slate-400">Distribución % del capital</span>
+              </div>
+              <p class="text-xs text-slate-600 mb-3">
+                Proporción del dinero en juego según la urgencia y el nivel de decisión de compra del cliente.
+              </p>
+            </div>
 
-        <!-- ✅ Contactados -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block">Contactados</span>
-          <div class="text-3xl font-black text-emerald-600 mt-1" id="statContacted">0</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">En proceso de cierre</span>
+            <!-- Barra Visual Segmentada -->
+            <div>
+              <div class="h-4 rounded-full bg-slate-100 overflow-hidden flex w-full p-0.5 border border-slate-200 mb-3">
+                <div id="barSegmentHot" class="h-full rounded-full bg-gradient-to-r from-red-500 to-orange-500 transition-all duration-500" style="width: 0%"></div>
+                <div id="barSegmentWarm" class="h-full rounded-full bg-amber-400 transition-all duration-500" style="width: 0%"></div>
+                <div id="barSegmentCold" class="h-full rounded-full bg-blue-400 transition-all duration-500" style="width: 0%"></div>
+              </div>
+
+              <!-- Leyenda -->
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="p-2.5 rounded-xl bg-red-50/70 border border-red-100">
+                  <span class="font-bold text-red-600 block text-[11px]">🔥 HOT (~80%)</span>
+                  <span id="barLabelHot" class="font-black text-slate-800 text-xs mt-0.5 block">0% ($0.00)</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-100">
+                  <span class="font-bold text-amber-600 block text-[11px]">⚡ WARM (~40%)</span>
+                  <span id="barLabelWarm" class="font-black text-slate-800 text-xs mt-0.5 block">0% ($0.00)</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100">
+                  <span class="font-bold text-blue-600 block text-[11px]">❄️ COLD (~15%)</span>
+                  <span id="barLabelCold" class="font-black text-slate-800 text-xs mt-0.5 block">0% ($0.00)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dinero en Juego por Prenda (Col 5) -->
+          <div class="lg:col-span-5 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                  <i data-lucide="tag" class="w-4 h-4 text-brandCoral"></i>
+                  <span>Dinero en Juego por Prenda</span>
+                </h3>
+                <span class="text-[11px] text-slate-400">Demanda real</span>
+              </div>
+              <p class="text-xs text-slate-600 mb-3">
+                Volumen económico según la prenda de interés elegida en el test:
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100/70 transition">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brandCoral"></span>
+                  <span class="font-bold text-brandNavy">Set Ejecutivo Shine ($69.99)</span>
+                </div>
+                <span id="valProdSet" class="font-black text-slate-800 font-mono">$0.00 (0)</span>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100/70 transition">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brandNavy"></span>
+                  <span class="font-bold text-brandNavy">Blazer Ícono ($42.99)</span>
+                </div>
+                <span id="valProdBlazer" class="font-black text-slate-800 font-mono">$0.00 (0)</span>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-100 hover:bg-slate-100/70 transition">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                  <span class="font-bold text-brandNavy">Blusa / Top Soft ($24.99)</span>
+                </div>
+                <span id="valProdBlusa" class="font-black text-slate-800 font-mono">$0.00 (0)</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
 
-      <!-- 2. Barra de Filtros, Búsqueda y Exportación -->
+      <!-- ============================================================== -->
+      <!-- 2. BARRA DE FILTROS, BÚSQUEDA Y EXPORTACIÓN                   -->
+      <!-- ============================================================== -->
       <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         
-        <!-- Pestañas de Filtro Rápido -->
-        <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-          <button onclick="setFilter('all')" id="btnFilterAll" class="filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-brandNavy text-white">
+        <!-- Pestañas de Filtro Rápido con Segmentos del Pipeline -->
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+          <button onclick="setFilter('all')" id="btnFilterAll" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-brandNavy text-white shadow-sm">
             Todos
           </button>
-          <button onclick="setFilter('hot')" id="btnFilterHot" class="filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
-            <span>🔥 Calientes (Prioridad)</span>
+          <button onclick="setFilter('hot')" id="btnFilterHot" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
+            <span>🔥 HOT ($ en juego)</span>
           </button>
-          <button onclick="setFilter('pending')" id="btnFilterPending" class="filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
-            ⏳ Pendientes
+          <button onclick="setFilter('warm')" id="btnFilterWarm" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
+            <span>⚡ WARM</span>
           </button>
-          <button onclick="setFilter('contacted')" id="btnFilterContacted" class="filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
-            ✅ Contactados
+          <button onclick="setFilter('cold')" id="btnFilterCold" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
+            <span>❄️ COLD</span>
+          </button>
+          <button onclick="setFilter('pending')" id="btnFilterPending" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+            ⏳ Por Contactar (<span id="statPending">0</span>)
+          </button>
+          <button onclick="setFilter('contacted')" id="btnFilterContacted" class="filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200">
+            ✅ Contactados (<span id="statContacted">0</span>)
           </button>
         </div>
 
@@ -360,19 +517,21 @@
       }
     });
 
-    // Filtros de pestaña
+    // Filtros de pestaña del Pipeline
     function setFilter(filter) {
       AdminCRM.currentFilter = filter;
       document.querySelectorAll('.filter-tab').forEach(b => {
-        b.className = 'filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200';
+        b.className = 'filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200';
       });
 
       const activeBtn = filter === 'all' ? 'btnFilterAll' :
                         filter === 'hot' ? 'btnFilterHot' :
+                        filter === 'warm' ? 'btnFilterWarm' :
+                        filter === 'cold' ? 'btnFilterCold' :
                         filter === 'pending' ? 'btnFilterPending' : 'btnFilterContacted';
       
       const el = document.getElementById(activeBtn);
-      if (el) el.className = 'filter-tab px-4 py-2 rounded-xl text-xs font-bold transition bg-brandNavy text-white';
+      if (el) el.className = 'filter-tab px-3.5 py-2 rounded-xl text-xs font-bold transition bg-brandNavy text-white shadow-sm';
 
       AdminCRM.renderLeads();
     }
