@@ -29,7 +29,9 @@ Este documento es la hoja de ruta maestra del proyecto dividida en **5 Fases**, 
 ### FASE 3: Estrategia de Marketing, Oferta y Copywriting (COMPLETADA)
 - [x] **Posicionamiento y Oferta:** Buyer Persona "Camila", PUV (*Desk-to-Dinner*), Mecanismo Único (*Smart-Fit Latino 24/7*) y Value Stack con Set Ejecutivo a $69.99 USD.
 - [x] **Copywriting Completo:** Redacción persuasiva de las 7 secciones para la Landing Page.
-- [x] **Entregable Generado:** [docs/02_ESTRATEGIA_Y_COPY.md](file:///c:/Users/emers/OneDrive/Escritorio/ANTIGRAVITY%20MACRO/docs/02_ESTRATEGIA_Y_COPY.md).
+- [x] **Entregables Estratégicos:**
+  - [docs/02_ESTRATEGIA_Y_COPY.md](file:///c:/Users/emers/OneDrive/Escritorio/ANTIGRAVITY%20MACRO/docs/02_ESTRATEGIA_Y_COPY.md)
+  - [docs/05_ARQUITECTURA_DE_CONVERSION_Y_FILTROS.md](file:///c:/Users/emers/OneDrive/Escritorio/ANTIGRAVITY%20MACRO/docs/05_ARQUITECTURA_DE_CONVERSION_Y_FILTROS.md) (Justificación técnica de filtros, dolores de mercado y unit economics).
 
 ---
 
